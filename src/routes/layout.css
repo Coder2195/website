@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme inline {
+	--font-dm-sans: "DM Sans", sans-serif;
+	--font-mono: "Space Mono", monospace;
+	--border-width-1: 1px;
+	--border-width-0_5: 0.5px;
+
+	--breakpoint-xs: 480px;
+	--breakpoint-xxs: 320px;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 800px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1440px;
+	--breakpoint-3xl: 1560px;
+
+	--mouse-x: -50%;
+	--mouse-y: -50%;
+}
+
+@layer base {
+	:root {
+		@apply font-dm-sans bg-black text-white text-[14px] xxs:text-[14.5px] xs:text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18.5px] xl:text-[20px] 2xl:text-[22px] 3xl:text-[24px];
+	}
+	h1 {
+		@apply text-8xl font-extrabold;
+	}
+	h2 {
+		@apply text-6xl font-bold;
+	}
+	h3 {
+		@apply text-4xl font-semibold;
+	}
+
+	* {
+		@apply tracking-tighter wrap-break-word;
+	}
+}
+
+@layer components {
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -10000;
+		width: 100dvw;
+		height: 100dvh;
+		background-image:
+			linear-gradient(to right, #ffffff99 0.5px, transparent 0.2vw),
+			linear-gradient(to bottom, #ffffff99 0.5px, transparent 0.2vw);
+		background-size: 1.5dvw 1.5dvw;
+		background-repeat: repeat;
+
+		@media (orientation: portrait) {
+			background-size: 1.5dvh 1.5dvh;
+		}
+	}
+
+	#background-mask {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -9000;
+		height: 100dvh;
+		width: 100dvw;
+		background: radial-gradient(
+			circle 30vw at var(--mouse-x) var(--mouse-y),
+			rgba(0, 0, 0, 0.3) 0%,
+			rgba(0, 0, 0, 0.8) 20%,
+			rgba(0, 0, 0, 0.85) 100%
+		);
+
+		@media (orientation: portrait) {
+			background: radial-gradient(
+				circle 30vh at var(--mouse-x) var(--mouse-y),
+				rgba(0, 0, 0, 0.3) 0%,
+				rgba(0, 0, 0, 0.8) 20%,
+				rgba(0, 0, 0, 0.85) 100%
+			);
+		}
+	}
+
+	main {
+		padding: 8em 2dvw;
+		padding-bottom: 0;
+	}
+
+	nav {
+		left: 2vw;
+		width: calc(100% - 4vw);
+		z-index: 100;
+		@apply flex justify-between items-center fixed top-4;
+	}
+}
