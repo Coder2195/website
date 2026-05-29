@@ -7,9 +7,6 @@
   const threshold = 0.95;
   let ratio = $derived(
     Math.max(Math.min((0.05 - (scrollY / height - threshold)) * 10, 1), 0),
-    // 0.9 -> 1,
-    // 1.0 -> 0
-    // 1 - (ratio - threshold)
   );
 
   const LINKS = [
