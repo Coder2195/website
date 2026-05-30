@@ -4,9 +4,9 @@
 
   let scrollY: number = $state(0);
   let height: number = $state(0);
-  const threshold = 0.95;
+  const threshold = 0.92;
   let ratio = $derived(
-    Math.max(Math.min((0.05 - (scrollY / height - threshold)) * 10, 1), 0),
+    Math.max(Math.min((0.03 - (scrollY / height - threshold)) * 10, 1), 0),
   );
 
   const LINKS = [
@@ -58,7 +58,7 @@
       <p>Check out my work experience -></p>
     </div>
   </div>
-  <div class="h-[50dvh]"></div>
+  <div class="h-dvh"></div>
 </div>
 <div class="min-h-dvh flex justify-center items-center gap-16 flex-col">
   <h2>Get in touch.</h2>
