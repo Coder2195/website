@@ -66,7 +66,7 @@
 		width: 100dvw;
 		background: radial-gradient(
 			circle 30vw at var(--mouse-x) var(--mouse-y),
-			rgba(0, 0, 0, 0.3) 0%,
+			rgba(0, 0, 0, 0.2) 0%,
 			rgba(0, 0, 0, 0.8) 20%,
 			rgba(0, 0, 0, 0.85) 100%
 		);
@@ -74,7 +74,7 @@
 		@media (orientation: portrait) {
 			background: radial-gradient(
 				circle 30vh at var(--mouse-x) var(--mouse-y),
-				rgba(0, 0, 0, 0.3) 0%,
+				rgba(0, 0, 0, 0.2) 0%,
 				rgba(0, 0, 0, 0.8) 20%,
 				rgba(0, 0, 0, 0.85) 100%
 			);

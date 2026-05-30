@@ -22,18 +22,18 @@
       aria-label="{menuOpen ? 'Close' : 'Open'} Menu"
     >
       <span
-        class="block w-3/4 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-200 {menuOpen
-          ? 'rotate-45'
+        class="block w-3/4 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-300 {menuOpen
+          ? 'rotate-45 top-1/2'
           : 'rotate-0 top-1/3'}"
       ></span>
       <span
-        class="block w-3/4 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all top-1/2 duration-200 {menuOpen
+        class="block w-3/4 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all top-1/2 duration-300 {menuOpen
           ? '-left-1/2'
           : 'left-1/2'}"
       ></span>
       <span
-        class="block w-3/4 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-200 {menuOpen
-          ? '-rotate-45'
+        class="block w-3/4 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-300 {menuOpen
+          ? '-rotate-45 top-1/2'
           : 'rotate-0 top-2/3'}"
       ></span>
     </button>
