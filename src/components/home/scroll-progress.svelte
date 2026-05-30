@@ -28,8 +28,8 @@
     stroke="#ffffff"
     stroke-width="0.5em"
     stroke-linecap="round"
-    stroke-dashoffset="{25.132 * (1 - progress)}em"
+    stroke-dashoffset="{9.424 * (1 - progress)}em"
     fill="transparent"
-    stroke-dasharray="25.132em"
+    stroke-dasharray="9.424em"
   ></circle>
 </svg>
