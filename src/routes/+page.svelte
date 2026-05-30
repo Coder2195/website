@@ -92,7 +92,7 @@
   >
     <div class="sticky top-1/2 pb-4" bind:clientHeight={howEndUpContentHeight}>
       <h2>How did you end up here? :3</h2>
-      <span class="absolute right-4 -bottom-16"
+      <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={howEndUpProgress} /></span
       >
     </div>
@@ -106,7 +106,7 @@
     <div class="sticky top-1/2" bind:clientHeight={aboutMeContentHeight}>
       <h2>A curious queer programmer.</h2>
       <p>Learn more about me -></p>
-      <span class="absolute right-4 -bottom-16"
+      <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={aboutMeProgress} /></span
       >
     </div>
@@ -120,7 +120,7 @@
     <div class="sticky top-1/2" bind:clientHeight={projectsContentHeight}>
       <h2>An aspiring software engineer specializing in web development.</h2>
       <p>See my work -></p>
-      <span class="absolute right-4 -bottom-16"
+      <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={projectsProgress} /></span
       >
     </div>
@@ -134,7 +134,7 @@
     <div class="sticky top-1/2" bind:clientHeight={experienceContentHeight}>
       <h2>A girl with 7 years of experience.</h2>
       <p>Check out my work experience -></p>
-      <span class="absolute right-4 -bottom-16"
+      <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={experienceProgress} /></span
       >
     </div>

@@ -25,6 +25,7 @@
 	},
 	"packageManager": "yarn@4.15.0",
 	"dependencies": {
-		"@iconify/json": "^2.2.480"
+		"@iconify/json": "^2.2.480",
+		"svelte-meta-tags": "^4.7.0"
 	}
 }
