@@ -34,7 +34,7 @@
 	}
 
 	* {
-		@apply tracking-tighter wrap-break-word;
+		@apply tracking-tighter wrap-break-word text-xl;
 	}
 }
 
@@ -47,8 +47,8 @@
 		width: 100dvw;
 		height: 100dvh;
 		background-image:
-			linear-gradient(to right, #ffffff99 0.5px, transparent 0.2vw),
-			linear-gradient(to bottom, #ffffff99 0.5px, transparent 0.2vw);
+			linear-gradient(to right, #ffffff99 0.25px, transparent 0.2vw),
+			linear-gradient(to bottom, #ffffff99 0.25px, transparent 0.2vw);
 		background-size: 1.5dvw 1.5dvw;
 		background-repeat: repeat;
 
@@ -67,8 +67,9 @@
 		background: radial-gradient(
 			circle 30vw at var(--mouse-x) var(--mouse-y),
 			rgba(0, 0, 0, 0.2) 0%,
-			rgba(0, 0, 0, 0.8) 20%,
-			rgba(0, 0, 0, 0.85) 100%
+			rgba(0, 0, 0, 0.8) 15%,
+			rgba(0, 0, 0, 0.88) 30%,
+			rgba(0, 0, 0, 0.88) 100%
 		);
 
 		@media (orientation: portrait) {

@@ -1,8 +1,9 @@
 <script lang="ts">
-  import MdiEmail from "virtual:icons/mdi/email";
-  import MdiGithub from "virtual:icons/mdi/github";
   import ScrollProgress from "@/components/home/scroll-progress.svelte";
   import { clamp, progress } from "@/lib/math";
+  import MaterialSymbolsKey from "~icons/material-symbols/key";
+  import MdiEmail from "~icons/mdi/email";
+  import MdiGithub from "~icons/mdi/github";
 
   let scrollY: number = $state(0);
   let height: number = $state(0);
@@ -61,8 +62,13 @@
     },
     {
       name: "Email",
-      href: "mailto:coder2195mail@gmail.com",
+      href: "mailto:contact@coder2195.dev",
       Icon: MdiEmail,
+    },
+    {
+      name: "Public Key",
+      href: "/amber.asc",
+      Icon: MaterialSymbolsKey,
     },
   ];
 </script>

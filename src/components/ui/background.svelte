@@ -1,22 +1,26 @@
 <script lang="ts">
+  function move(x: number, y: number) {
+    document.documentElement.style.setProperty("--mouse-x", `${x}px`);
+    document.documentElement.style.setProperty("--mouse-y", `${y}px`);
+  }
 </script>
 
 <svelte:window
   onmousemove={(e) => {
-    document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-    document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+    move(e.clientX, e.clientY);
   }}
   ontouchmove={(e) => {
-    document.documentElement.style.setProperty(
-      "--pointer-x",
-      `${e.touches[0].clientX}px`,
-    );
-    document.documentElement.style.setProperty(
-      "--pointer-y",
-      `${e.touches[0].clientY}px`,
-    );
+    move(e.touches[0].clientX, e.touches[0].clientY);
+  }}
+  ondrag={(e) => {
+    move(e.clientX, e.clientY);
+  }}
+  ontouchstart={(e) => {
+    move(e.touches[0].clientX, e.touches[0].clientY);
   }}
 />
+
+<div id="background"></div>
 
 <div id="background"></div>
 <div id="background-mask"></div>
