@@ -149,7 +149,7 @@
 </div>
 <div class="min-h-dvh flex justify-center items-center gap-16 flex-col">
   <h2>Get in touch.</h2>
-  <div class="flex gap-4">
+  <div class="flex gap-4 flex-wrap justify-center">
     {#each LINKS as { name, href, Icon }}
       <a
         {href}
