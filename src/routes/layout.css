@@ -39,6 +39,10 @@
 }
 
 @layer components {
+	#title {
+		margin-top: calc(50dvh - 3em);
+		@apply text-red-500 font-bold sticky top-24 mb-8 z-10 p-4 backdrop-blur-md border-white/20 border inline-block max-w-fit rounded-xl;
+	}
 	#background {
 		position: fixed;
 		top: 0;
@@ -93,5 +97,9 @@
 		width: calc(100% - 4vw);
 		z-index: 100;
 		@apply flex justify-between items-center fixed top-4;
+	}
+
+	.button {
+		@apply border border-white/20 backdrop-blur-sm p-4 rounded-full hover:bg-white/10 transition-colors duration-300;
 	}
 }

@@ -1,14 +1,12 @@
 <script lang="ts">
   import ScrollProgress from "@/components/home/scroll-progress.svelte";
-  import { clamp, progress } from "@/lib/math";
+  import { progress } from "@/lib/math";
   import MaterialSymbolsKey from "~icons/material-symbols/key";
   import MdiEmail from "~icons/mdi/email";
   import MdiGithub from "~icons/mdi/github";
 
   let scrollY: number = $state(0);
   let height: number = $state(0);
-  const threshold = 0.92;
-  let ratio = $derived(clamp(0.03 - (scrollY / height - threshold) * 10, 0, 1));
 
   let howEndUp: HTMLDivElement | undefined = $state();
   let howEndUpOffsetTop = $derived(howEndUp?.offsetTop ?? 0);
@@ -71,6 +69,14 @@
       Icon: MaterialSymbolsKey,
     },
   ];
+
+  const progressEnd = $derived(
+    progress(
+      scrollY,
+      experienceMax,
+      experienceMax + (experienceHeight * 5) / 12,
+    ),
+  );
 </script>
 
 <svelte:window
@@ -85,8 +91,10 @@
 
 <div bind:clientHeight={height}>
   <h1
-    class="text-red-500 font-bold sticky top-24 mt-[calc(50dvh-3em)] mb-8 z-10 p-4 backdrop-blur-md border-white/20 border inline-block max-w-fit rounded-xl"
-    style="opacity: {ratio}"
+    id="title"
+    style="opacity:{1 - progressEnd}; transform:translateX({-progressEnd *
+      100}%); font-size:{6 -
+      2 * progress(scrollY, howEndUpMin + howEndUpHeight / 3, howEndUpMax)}rem"
   >
     Amber here.
   </h1>
@@ -125,7 +133,7 @@
   >
     <div class="sticky top-1/2" bind:clientHeight={projectsContentHeight}>
       <h2>An aspiring software engineer specializing in web development.</h2>
-      <p>See my work -></p>
+      <a href="projects" class="button mt-2 inline-block">See my work.</a>
       <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={projectsProgress} /></span
       >
@@ -155,7 +163,7 @@
         {href}
         target="_blank"
         rel="noopener noreferrer"
-        class="border border-white/20 backdrop-blur-md p-4 rounded-full flex items-center gap-2"
+        class="button flex items-center gap-2"
       >
         <Icon class="w-6 h-6" />
         <span>{name}</span>

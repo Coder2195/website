@@ -3,8 +3,8 @@
   let menu: HTMLElement | undefined = $state();
 
   import MaterialSymbolsAccountCircle from "~icons/material-symbols/account-circle";
+  import MaterialSymbolsCardsStackOutlineRounded from "~icons/material-symbols/cards-stack-outline-rounded";
   import MaterialSymbolsFolderCodeOutline from "~icons/material-symbols/folder-code-outline";
-  import MaterialSymbolsHourglassEmptyRounded from "~icons/material-symbols/hourglass-empty-rounded";
 
   const LINKS = [
     {
@@ -20,7 +20,7 @@
     {
       name: "Experience",
       href: "experience",
-      Icon: MaterialSymbolsHourglassEmptyRounded,
+      Icon: MaterialSymbolsCardsStackOutlineRounded,
     },
   ];
 
@@ -60,7 +60,7 @@
       onclick={() => {
         menuOpen = !menuOpen;
       }}
-      class="aspect-square rounded-full overflow-hidden border border-white/20 h-16 p-2 box-border backdrop-blur-md"
+      class="aspect-square h-16 button overflow-hidden"
       aria-label="{menuOpen ? 'Close' : 'Open'} Menu"
     >
       <span
@@ -88,9 +88,9 @@
       {#each LINKS as link}
         <a
           href={link.href}
-          class="rounded-full backdrop-blur-md aspect-square border border-white/20 {menuOpen
+          class="button {menuOpen
             ? 'w-16 h-16'
-            : 'w-0 h-0'} block p-2 transition-[width,height] delay-100 duration-200"
+            : 'w-0 h-0'} block p-2 transition-[width,height] delay-50 duration-300"
           aria-label={link.name}
         >
           <link.Icon class="w-full h-full" />
