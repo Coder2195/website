@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@keyframes wiggle {
+	0%,
+	50% {
+		transform: rotate(0);
+	}
+	5%,
+	15%,
+	25%,
+	35%,
+	45% {
+		transform: rotate(2deg);
+	}
+	10%,
+	20%,
+	30%,
+	40% {
+		transform: rotate(-2deg);
+	}
+}
+
 @theme inline {
 	--font-dm-sans: "DM Sans", sans-serif;
 	--font-mono: "Space Mono", monospace;
@@ -17,6 +37,7 @@
 
 	--mouse-x: -50%;
 	--mouse-y: -50%;
+	--animate-wiggle: wiggle 2s ease-in-out infinite;
 }
 
 @layer base {
@@ -36,6 +57,10 @@
 	* {
 		@apply tracking-tighter wrap-break-word text-xl;
 	}
+
+	main {
+		@apply relative z-10 max-w-5xl mx-auto;
+	}
 }
 
 @layer components {
@@ -51,14 +76,10 @@
 		width: 100dvw;
 		height: 100dvh;
 		background-image:
-			linear-gradient(to right, #ffffff99 0.25px, transparent 0.2vw),
-			linear-gradient(to bottom, #ffffff99 0.25px, transparent 0.2vw);
-		background-size: 1.5dvw 1.5dvw;
+			linear-gradient(to right, #ffffff99 0.25px, transparent 0.1em),
+			linear-gradient(to bottom, #ffffff99 0.25px, transparent 0.1em);
+		background-size: 0.8em 0.8em;
 		background-repeat: repeat;
-
-		@media (orientation: portrait) {
-			background-size: 1.5dvh 1.5dvh;
-		}
 	}
 
 	#background-mask {

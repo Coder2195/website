@@ -9,9 +9,18 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"codegen": "graphql-codegen --config codegen.yml"
+	},
+	"graphql": {
+		"schema": "https://us-east-1.cdn.hygraph.com/content/cl8hzzoiu59rq01tccufrg18c/master",
+		"documents": "src/lib/graphql/index.ts"
 	},
 	"devDependencies": {
+		"@graphql-codegen/cli": "^7.1.2",
+		"@graphql-codegen/typescript": "^6.0.2",
+		"@graphql-codegen/typescript-operations": "^6.0.3",
+		"@graphql-codegen/typescript-resolvers": "^6.0.2",
 		"@sveltejs/adapter-vercel": "^6.3.3",
 		"@sveltejs/kit": "^2.61.1",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
@@ -25,7 +34,11 @@
 	},
 	"packageManager": "yarn@4.15.0",
 	"dependencies": {
+		"@graphql-codegen/client-preset": "^6.0.1",
+		"@graphql-codegen/typescript-graphql-request": "^7.1.0",
 		"@iconify/json": "^2.2.480",
-		"svelte-meta-tags": "^4.7.0"
+		"graphql": "^16.14.2",
+		"graphql-request": "^7.4.0",
+		"svelte-meta-tags": "^5.0.0"
 	}
 }

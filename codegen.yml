@@ -1,0 +1,39 @@
+# Generates TypeScript types and typed GraphQL client from Hygraph schema
+
+schema: https://us-east-1.cdn.hygraph.com/content/cl8hzzoiu59rq01tccufrg18c/master
+documents: 'src/lib/graphql/index.ts'
+
+generates:
+  # Generated types and operations
+  src/lib/graphql/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      # Strict type safety
+      avoidOptionals: false
+      maybeValue: T | null
+      strictScalars: true
+
+      # Make generated client use our custom client
+      rawRequest: false
+
+      # Output formatting
+      enumsAsTypes: true
+      skipTypename: false
+
+      # Naming conventions
+      typesPrefix: ''
+      typesSuffix: ''
+
+      # Scalars (Hygraph custom types)
+      scalars:
+        DateTime: string
+        Date: string
+        Hex: string
+        Json: string
+        Long: number
+        RGBAHue: number
+        RGBATransparency: number
+        RichTextAST: string

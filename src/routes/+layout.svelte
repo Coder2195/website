@@ -25,7 +25,10 @@
 <MetaTags {...metaTags} />
 
 <Navbar />
-<main>
-  {@render children()}
-</main>
+
+{#key page.url.pathname}
+  <main>
+    {@render children()}
+  </main>
+{/key}
 <Background />
