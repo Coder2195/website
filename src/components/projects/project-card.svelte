@@ -42,7 +42,7 @@
   {#if project.coverImage}
     <figure class="aspect-video relative overflow-hidden">
       <img
-        srcset={optimize(project.coverImage.url)}
+        srcset={optimize(project.coverImage.url, [240, 480, 720, 960])}
         alt={project.title}
         width={480}
         height={270}

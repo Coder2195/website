@@ -28,7 +28,7 @@
 </div>
 <div
   bind:this={projectsDiv}
-  class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8"
+  class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 mb-16"
 >
   {#each projects.sort((a, b) => {
     // featured on top, then sort by date
