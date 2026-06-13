@@ -46,14 +46,18 @@
 	}
 	h1 {
 		font-size: 5rem;
+
+		line-height: 0.85;
 		@apply font-extrabold;
 	}
 	h2 {
 		font-size: 3rem;
+		line-height: 0.9;
 		@apply font-bold;
 	}
 	h3 {
 		font-size: 2.2rem;
+		line-height: 1;
 		@apply font-semibold;
 	}
 
@@ -63,15 +67,20 @@
 	}
 
 	main {
+		max-width: calc(100dvw - 2em);
+		width: 72rem;
+		@apply relative z-10 mx-auto tracking-tighter wrap-break-word text-xl;
+	}
+
+	body {
 		line-height: 1.1;
-		@apply relative z-10 max-w-5xl mx-auto tracking-tighter wrap-break-word text-xl;
 	}
 }
 
 @layer components {
 	#title {
-		margin-top: calc(50dvh - 3em);
-		@apply text-red-500 font-bold sticky top-24 mb-8 z-10 py-2 px-4 backdrop-blur-md border-white/20 border inline-block max-w-fit rounded-xl;
+		margin-top: calc(40vh - 10rem);
+		@apply text-red-500 font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-md border-white/20 border inline-block max-w-full rounded-xl;
 	}
 	#background {
 		position: fixed;
@@ -114,7 +123,7 @@
 	}
 
 	main {
-		padding: 8em 2dvw;
+		padding: em 2dvw;
 		padding-bottom: 0;
 	}
 
