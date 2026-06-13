@@ -7,13 +7,18 @@ export const hygraph = new GraphQLClient(
 
 export const GET_PROJECTS = gql`
   query GetProjects {
+    projectTags {
+      id
+      name
+      style
+    }
     projects {
       id
       title
       date
       excerpt
       tags {
-        name
+        id
       }
       featured
       coverImage {
@@ -59,5 +64,7 @@ export const GET_PROJECT_METADATA = gql`
     }
   }
 `;
+
+export type GetProjectsTag = GetProjectsQuery["projectTags"][number];
 
 export type ProjectPreview = GetProjectsQuery["projects"][number];

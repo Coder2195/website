@@ -1,14 +1,16 @@
 <script lang="ts">
-  import type { ProjectPreview } from "@/lib/graphql";
+  import type { GetProjectsTag, ProjectPreview } from "@/lib/graphql";
   import { optimize } from "@/lib/image";
   import Fa6SolidThumbtack from "~icons/fa6-solid/thumbtack";
 
   let {
     project,
+    tags,
     index,
   }: {
     index: number;
     project: ProjectPreview;
+    tags: { [id: string]: GetProjectsTag };
   } = $props();
 
   let show = $state(false);
@@ -40,7 +42,7 @@
   href="/projects/{project.slug}"
 >
   {#if project.coverImage}
-    <figure class="aspect-video relative overflow-hidden">
+    <div class="aspect-video relative overflow-hidden">
       <img
         srcset={optimize(project.coverImage.url, [240, 480, 720, 960])}
         alt={project.title}
@@ -48,19 +50,21 @@
         height={270}
         class="object-cover object-center w-full h-full"
       />
-    </figure>
+    </div>
   {/if}
   <div class="p-2">
     <h4 class="card-title tracking-tight flex items-center gap-2">
       {#if project.featured}
-        <Fa6SolidThumbtack class="inline w-4 h-4" />
+        <Fa6SolidThumbtack aria-label="Featured" class="inline w-4 h-4" />
       {/if}
       {project.title}
     </h4>
-    <div class="flex items-center gap-2">
-      {#each project.tags as tag}
-        <span class="px-1 py-0.5 rounded border text-xs border-white/20">
-          {tag.name}
+    <div class="flex items-center gap-2 flex-wrap">
+      {#each project.tags.map((tag) => tag.id) as tagId}
+        <span
+          class="px-1 py-0.5 rounded border text-xs border-white/20 tag-{tagId}"
+        >
+          {tags[tagId].name}
         </span>
       {/each}
     </div>

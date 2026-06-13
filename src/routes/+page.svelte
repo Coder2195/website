@@ -93,8 +93,9 @@
   <h1
     id="title"
     style="opacity:{1 - progressEnd}; transform:translateX({-progressEnd *
-      100}%); font-size:{6 -
-      2 * progress(scrollY, howEndUpMin + howEndUpHeight / 3, howEndUpMax)}rem"
+      100}%); font-size:{5 -
+      1.5 *
+        progress(scrollY, howEndUpMin + howEndUpHeight / 3, howEndUpMax)}rem"
   >
     Amber here.
   </h1>

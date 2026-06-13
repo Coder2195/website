@@ -91,9 +91,8 @@
           class="button {menuOpen
             ? 'w-16 h-16'
             : 'w-0 h-0'} block p-2 transition-[width,height] delay-50 duration-300"
-          aria-label={link.name}
         >
-          <link.Icon class="w-full h-full" />
+          <link.Icon class="w-full h-full" aria-label={link.name} />
         </a>
       {/each}
     </div>

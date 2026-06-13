@@ -2164,6 +2164,7 @@ export type ProjectTag = Entity & Node & {
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
+  style: Scalars['String']['output'];
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
@@ -2248,6 +2249,7 @@ export type ProjectTagCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   name: Scalars['String']['input'];
   projects?: InputMaybe<ProjectCreateManyInlineInput>;
+  style: Scalars['String']['input'];
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -2363,6 +2365,25 @@ export type ProjectTagManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  style?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  style_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  style_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  style_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  style_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  style_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  style_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  style_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  style_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  style_starts_with?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -2390,12 +2411,15 @@ export type ProjectTagOrderByInput =
   | 'name_DESC'
   | 'publishedAt_ASC'
   | 'publishedAt_DESC'
+  | 'style_ASC'
+  | 'style_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
 
 export type ProjectTagUpdateInput = {
   name?: InputMaybe<Scalars['String']['input']>;
   projects?: InputMaybe<ProjectUpdateManyInlineInput>;
+  style?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectTagUpdateManyInlineInput = {
@@ -2416,8 +2440,7 @@ export type ProjectTagUpdateManyInlineInput = {
 };
 
 export type ProjectTagUpdateManyInput = {
-  /** No fields in updateMany data input */
-  _?: InputMaybe<Scalars['String']['input']>;
+  style?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectTagUpdateManyWithNestedWhereInput = {
@@ -2558,6 +2581,25 @@ export type ProjectTagWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  style?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  style_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  style_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  style_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  style_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  style_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  style_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  style_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  style_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  style_starts_with?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -5251,7 +5293,7 @@ export type _SystemDateTimeFieldVariation =
 export type GetProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProjectsQuery = { projects: Array<{ id: string, title: string, date: string, excerpt: string | null, featured: boolean, slug: string, tags: Array<{ name: string }>, coverImage: { url: string } | null }> };
+export type GetProjectsQuery = { projectTags: Array<{ id: string, name: string, style: string }>, projects: Array<{ id: string, title: string, date: string, excerpt: string | null, featured: boolean, slug: string, tags: Array<{ id: string }>, coverImage: { url: string } | null }> };
 
 export type GetProjectQueryVariables = Exact<{
   slug: string;
@@ -5270,13 +5312,18 @@ export type GetProjectMetadataQuery = { project: { id: string, title: string, cr
 
 export const GetProjectsDocument = gql`
     query GetProjects {
+  projectTags {
+    id
+    name
+    style
+  }
   projects {
     id
     title
     date
     excerpt
     tags {
-      name
+      id
     }
     featured
     coverImage {
