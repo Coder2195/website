@@ -101,7 +101,7 @@
   </h1>
 
   <div
-    class="h-dvh relative"
+    class="h-screen relative"
     bind:clientHeight={howEndUpHeight}
     bind:this={howEndUp}
   >
@@ -112,9 +112,9 @@
       >
     </div>
   </div>
-  <div class="h-[calc(100vh-8rem)]"></div>
+  <div class="h-screen"></div>
   <div
-    class="h-dvh relative"
+    class="h-screen relative"
     bind:clientHeight={aboutMeHeight}
     bind:this={aboutMe}
   >
@@ -126,9 +126,9 @@
       >
     </div>
   </div>
-  <div class="h-[calc(100vh-8rem)]"></div>
+  <div class="h-screen"></div>
   <div
-    class="h-dvh relative"
+    class="h-screen relative"
     bind:clientHeight={projectsHeight}
     bind:this={projects}
   >
@@ -140,9 +140,9 @@
       >
     </div>
   </div>
-  <div class="h-dvh"></div>
+  <div class="h-screen"></div>
   <div
-    class="h-dvh relative"
+    class="h-screen relative"
     bind:clientHeight={experienceHeight}
     bind:this={experience}
   >
@@ -154,9 +154,9 @@
       >
     </div>
   </div>
-  <div class="h-dvh"></div>
+  <div class="h-screen"></div>
 </div>
-<div class="min-h-dvh flex justify-center items-center gap-16 flex-col">
+<div class="min-h-screen flex justify-center items-center gap-16 flex-col">
   <h2>Get in touch.</h2>
   <div class="flex gap-4 flex-wrap justify-center">
     {#each LINKS as { name, href, Icon }}

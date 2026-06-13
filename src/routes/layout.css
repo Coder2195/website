@@ -45,13 +45,16 @@
 		@apply font-dm-sans bg-black text-white text-[14px] xxs:text-[15px] xs:text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px] 3xl:text-[22px];
 	}
 	h1 {
-		@apply text-5xl font-extrabold;
+		font-size: 5rem;
+		@apply font-extrabold;
 	}
 	h2 {
-		@apply text-5xl font-bold;
+		font-size: 3rem;
+		@apply font-bold;
 	}
 	h3 {
-		@apply text-[2rem] font-semibold;
+		font-size: 2.2rem;
+		@apply font-semibold;
 	}
 
 	* {
