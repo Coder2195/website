@@ -79,8 +79,7 @@
 
 @layer components {
 	#title {
-		margin-top: calc(40vh - 10rem);
-		@apply text-red-500 font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-md border-white/20 border inline-block max-w-full rounded-xl;
+		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-md border-white/20 border inline-block max-w-full rounded-xl;
 	}
 	#background {
 		position: fixed;
