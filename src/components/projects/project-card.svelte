@@ -58,14 +58,18 @@
       {project.title}
     </h4>
     <div class="flex items-center gap-2">
-      <div class="text-sm text-mocha-overlay2">type: unknown</div>
-      <div class="text-sm text-mocha-overlay2">
-        {new Date(project.date).toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        })}
-      </div>
+      {#each project.tags as tag}
+        <span class="px-1 py-0.5 rounded border text-xs border-white/20">
+          {tag.name}
+        </span>
+      {/each}
+    </div>
+    <div class="text-sm text-right text-zinc-400">
+      {new Date(project.date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })}
     </div>
   </div>
 </a>

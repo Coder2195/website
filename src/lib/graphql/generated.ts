@@ -2155,7 +2155,7 @@ export type ProjectTag = Entity & Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
-  name?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
   projects: Array<Project>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -2246,7 +2246,7 @@ export type ProjectTagConnection = {
 
 export type ProjectTagCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
   projects?: InputMaybe<ProjectCreateManyInlineInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
@@ -2416,7 +2416,8 @@ export type ProjectTagUpdateManyInlineInput = {
 };
 
 export type ProjectTagUpdateManyInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
+  /** No fields in updateMany data input */
+  _?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectTagUpdateManyWithNestedWhereInput = {
@@ -2592,6 +2593,7 @@ export type ProjectTagWhereStageInput = {
 /** References ProjectTag record uniquely */
 export type ProjectTagWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectUpdateInput = {
@@ -4271,7 +4273,7 @@ export type Skill = Entity & Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
-  name?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
   /** Projects using this skill */
   projects: Array<Project>;
   /** The time the document was published. Null on documents in draft stage. */
@@ -4281,7 +4283,7 @@ export type Skill = Entity & Node & {
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
-  type?: Maybe<SkillType>;
+  type: SkillType;
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
@@ -4371,9 +4373,9 @@ export type SkillConnection = {
 
 export type SkillCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
   projects?: InputMaybe<ProjectCreateManyInlineInput>;
-  type?: InputMaybe<SkillType>;
+  type: SkillType;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -4530,6 +4532,7 @@ export type SkillOrderByInput =
 
 /** Skill Type */
 export type SkillType =
+  | 'framework'
   | 'language'
   | 'library'
   | 'tool';
@@ -4558,7 +4561,6 @@ export type SkillUpdateManyInlineInput = {
 };
 
 export type SkillUpdateManyInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<SkillType>;
 };
 
@@ -4742,6 +4744,7 @@ export type SkillWhereStageInput = {
 /** References Skill record uniquely */
 export type SkillWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Stage system enumeration */
@@ -5248,7 +5251,7 @@ export type _SystemDateTimeFieldVariation =
 export type GetProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProjectsQuery = { projects: Array<{ id: string, title: string, date: string, excerpt: string | null, featured: boolean, slug: string, coverImage: { url: string } | null }> };
+export type GetProjectsQuery = { projects: Array<{ id: string, title: string, date: string, excerpt: string | null, featured: boolean, slug: string, tags: Array<{ name: string }>, coverImage: { url: string } | null }> };
 
 export type GetProjectQueryVariables = Exact<{
   slug: string;
@@ -5272,6 +5275,9 @@ export const GetProjectsDocument = gql`
     title
     date
     excerpt
+    tags {
+      name
+    }
     featured
     coverImage {
       url

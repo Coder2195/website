@@ -12,6 +12,9 @@ export const GET_PROJECTS = gql`
       title
       date
       excerpt
+      tags {
+        name
+      }
       featured
       coverImage {
         url

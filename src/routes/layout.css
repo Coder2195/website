@@ -54,7 +54,7 @@
 		@apply text-2xl font-semibold;
 	}
 
-	* {
+	main {
 		@apply tracking-tighter wrap-break-word text-xl;
 	}
 
