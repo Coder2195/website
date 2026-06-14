@@ -50,21 +50,6 @@ export const GET_PROJECT = gql`
 
 `;
 
-export const GET_PROJECT_METADATA = gql`
-  query GetProjectMetadata($slug: String!) {
-    project(where: { slug: $slug }) {
-      id
-      title
-      createdAt
-      excerpt
-      coverImage {
-        url
-      }
-      embed
-    }
-  }
-`;
-
 export type GetProjectsTag = GetProjectsQuery["projectTags"][number];
 
 export type ProjectPreview = GetProjectsQuery["projects"][number];

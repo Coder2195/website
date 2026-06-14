@@ -67,8 +67,9 @@
 	}
 
 	main {
-		max-width: calc(100dvw - 2em);
-		width: 72rem;
+		max-width: 72rem;
+		width: calc(100% - 2rem);
+
 		@apply relative z-10 mx-auto tracking-tighter wrap-break-word text-xl;
 	}
 

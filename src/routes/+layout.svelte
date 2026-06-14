@@ -3,6 +3,7 @@
   import "./layout.css";
   import { deepMerge, MetaTags } from "svelte-meta-tags";
   import Background from "@/components/ui/background.svelte";
+  import Splash from "@/components/ui/splash.svelte";
   import { page } from "$app/state";
 
   let { children, data } = $props();
@@ -25,6 +26,7 @@
 <MetaTags {...metaTags} />
 
 <Navbar />
+<Splash />
 
 {#key page.url.pathname}
   <main>
