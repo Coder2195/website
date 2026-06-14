@@ -13,7 +13,10 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter({
 			images: {
-				sizes: [480, 640, 960, 1080, 1280],
+				sizes: [
+					32, 48, 64, 96, 128, 160, 192, 224, 256, 288, 320, 384, 448, 512, 640,
+					768, 896, 1024, 1280, 120, 240, 480, 720, 960, 1200,
+				],
 				formats: ["image/avif", "image/webp"],
 				minimumCacheTTL: 300,
 				domains: [
