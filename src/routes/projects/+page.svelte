@@ -37,7 +37,7 @@
 
 <svelte:window bind:scrollY />
 
-<div class="min-h-[calc(75dvh-8rem)]">
+<div class="h-[75dvh]">
   <h1
     id="title"
     bind:this={title}
