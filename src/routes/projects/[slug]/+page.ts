@@ -21,16 +21,13 @@ export const load: PageLoad = async ({ params }) => {
 
 	const pageMetaTags: MetaTagsProps = {
 		title: `Project: ${project.title}`,
-		description: project.excerpt || undefined,
+		description: project.excerpt || "Check out this cool project I made!",
 		openGraph: {
-			images: project.coverImage
-				? [
-						{
-							url: project.coverImage.url,
-							alt: `Cover image for ${project.title}`,
-						},
-					]
-				: undefined,
+			images: [
+				{
+					url: project.coverImage?.url || "/icon.png",
+				},
+			],
 		},
 		twitter: {
 			cardType: "summary_large_image",
