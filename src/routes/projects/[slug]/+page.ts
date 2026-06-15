@@ -32,6 +32,9 @@ export const load: PageLoad = async ({ params }) => {
 					]
 				: undefined,
 		},
+		twitter: {
+			cardType: "summary_large_image",
+		},
 	};
 
 	return {
