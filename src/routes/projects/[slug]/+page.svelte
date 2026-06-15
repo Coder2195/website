@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { optimize } from "@/lib/image";
   import { progress } from "@/lib/math";
   import MaterialSymbolsOpenInNew from "~icons/material-symbols/open-in-new";
   import type { PageProps } from "./$types";
@@ -73,7 +74,8 @@
   style="opacity:{showGridProgress};"
 >
   <img
-    src={project.coverImage?.url}
+    src={project.coverImage &&
+      optimize(project.coverImage.url, [480, 720, 1080, 1280], 75)}
     alt=""
     class="absolute left-0 right-0 w-full h-full object-cover block"
     style="opacity:{coverOpacity};"
