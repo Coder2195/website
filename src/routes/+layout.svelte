@@ -1,6 +1,7 @@
 <script lang="ts">
   import Navbar from "@/components/ui/navbar.svelte";
   import "./layout.css";
+  import { fade } from "svelte/transition";
   import { deepMerge, MetaTags } from "svelte-meta-tags";
   import Background from "@/components/ui/background.svelte";
   import Splash from "@/components/ui/splash.svelte";
@@ -29,7 +30,7 @@
 <Splash />
 
 {#key page.url.pathname}
-  <main>
+  <main in:fade={{ duration: 500 }}>
     {@render children()}
   </main>
 {/key}
