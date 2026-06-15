@@ -74,7 +74,7 @@
   style="opacity:{showGridProgress};"
 >
   <img
-    src={project.coverImage &&
+    srcset={project.coverImage &&
       optimize(project.coverImage.url, [480, 720, 1080, 1280])}
     alt=""
     class="absolute left-0 right-0 w-full h-full object-cover block"
