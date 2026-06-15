@@ -9,17 +9,17 @@
   const LINKS = [
     {
       name: "About Me",
-      href: "about-me",
+      href: "/about-me",
       Icon: MaterialSymbolsAccountCircle,
     },
     {
       name: "Projects",
-      href: "projects",
+      href: "/projects",
       Icon: MaterialSymbolsFolderCodeOutline,
     },
     {
       name: "Experience",
-      href: "experience",
+      href: "/experience",
       Icon: MaterialSymbolsCardsStackOutlineRounded,
     },
   ];
