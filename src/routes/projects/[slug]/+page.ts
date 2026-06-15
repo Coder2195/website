@@ -23,11 +23,13 @@ export const load: PageLoad = async ({ params }) => {
 		title: `Project: ${project.title}`,
 		description: project.excerpt || undefined,
 		openGraph: {
-			image: project.coverImage
-				? {
-						url: project.coverImage.url,
-						alt: `Cover image for ${project.title}`,
-					}
+			images: project.coverImage
+				? [
+						{
+							url: project.coverImage.url,
+							alt: `Cover image for ${project.title}`,
+						},
+					]
 				: undefined,
 		},
 	};
