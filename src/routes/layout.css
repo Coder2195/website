@@ -42,7 +42,7 @@
 
 @layer base {
 	:root {
-		@apply font-dm-sans bg-black text-white text-[14px] xxs:text-[15px] xs:text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px] 3xl:text-[22px];
+		@apply font-dm-sans bg-black text-white text-[14px] xxs:text-[15px] xs:text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px] 3xl:text-[22px] border-white/20;
 	}
 	h1 {
 		font-size: 5rem;
@@ -64,6 +64,7 @@
 	* {
 		font-size: inherit;
 		line-height: inherit;
+		border-color: inherit;
 	}
 
 	main {
@@ -80,7 +81,7 @@
 
 @layer components {
 	#title {
-		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-md border-white/20 border inline-block max-w-full rounded-xl;
+		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-md border inline-block max-w-full rounded-xl;
 	}
 	#background {
 		position: fixed;
@@ -136,5 +137,44 @@
 
 	.button {
 		@apply border border-white/20 backdrop-blur-sm px-4 p-2 rounded-full hover:bg-white/10 transition-colors duration-300;
+	}
+
+	#description {
+		font-size: 1rem;
+
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		ul {
+			@apply list-disc pl-6;
+		}
+		ol {
+			@apply list-decimal pl-6;
+		}
+	}
+
+	.skill-language {
+		@apply bg-blue-500/20 border-blue-500 text-blue-400;
+	}
+
+	.skill-library {
+		@apply bg-green-500/20 border-green-500 text-green-400;
+	}
+
+	.skill-tool {
+		@apply bg-yellow-500/20 border-yellow-500 text-yellow-400;
+	}
+
+	.skill-framework {
+		@apply bg-purple-500/20 border-purple-500 text-purple-400;
 	}
 }

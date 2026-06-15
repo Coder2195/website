@@ -4315,6 +4315,7 @@ export type Skill = Entity & Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
+  link?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
   /** Projects using this skill */
   projects: Array<Project>;
@@ -4415,6 +4416,7 @@ export type SkillConnection = {
 
 export type SkillCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
   projects?: InputMaybe<ProjectCreateManyInlineInput>;
   type: SkillType;
@@ -4492,6 +4494,25 @@ export type SkillManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  link_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  link_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  link_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  link_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  link_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  link_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  link_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  link_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  link_starts_with?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   name_contains?: InputMaybe<Scalars['String']['input']>;
@@ -4563,6 +4584,8 @@ export type SkillOrderByInput =
   | 'createdAt_DESC'
   | 'id_ASC'
   | 'id_DESC'
+  | 'link_ASC'
+  | 'link_DESC'
   | 'name_ASC'
   | 'name_DESC'
   | 'publishedAt_ASC'
@@ -4580,6 +4603,7 @@ export type SkillType =
   | 'tool';
 
 export type SkillUpdateInput = {
+  link?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   projects?: InputMaybe<ProjectUpdateManyInlineInput>;
   type?: InputMaybe<SkillType>;
@@ -4603,6 +4627,7 @@ export type SkillUpdateManyInlineInput = {
 };
 
 export type SkillUpdateManyInput = {
+  link?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<SkillType>;
 };
 
@@ -4703,6 +4728,25 @@ export type SkillWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  link_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  link_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  link_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  link_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  link_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  link_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  link_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  link_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  link_starts_with?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   /** All values containing the given string. */
   name_contains?: InputMaybe<Scalars['String']['input']>;
@@ -5290,6 +5334,13 @@ export type _SystemDateTimeFieldVariation =
   | 'combined'
   | 'localization';
 
+/** Skill Type */
+export type SkillType =
+  | 'framework'
+  | 'language'
+  | 'library'
+  | 'tool';
+
 export type GetProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5300,14 +5351,7 @@ export type GetProjectQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectQuery = { project: { id: string, title: string, createdAt: string, excerpt: string | null, updatedAt: string, embed: string | null, slug: string, description: { html: string }, coverImage: { url: string } | null } | null };
-
-export type GetProjectMetadataQueryVariables = Exact<{
-  slug: string;
-}>;
-
-
-export type GetProjectMetadataQuery = { project: { id: string, title: string, createdAt: string, excerpt: string | null, embed: string | null, coverImage: { url: string } | null } | null };
+export type GetProjectQuery = { project: { id: string, title: string, createdAt: string, excerpt: string | null, updatedAt: string, embed: string | null, slug: string, description: { html: string }, coverImage: { url: string } | null, skills: Array<{ name: string, type: SkillType, link: string | null }> } | null };
 
 
 export const GetProjectsDocument = gql`
@@ -5348,21 +5392,12 @@ export const GetProjectDocument = gql`
     coverImage {
       url
     }
-    slug
-  }
-}
-    `;
-export const GetProjectMetadataDocument = gql`
-    query GetProjectMetadata($slug: String!) {
-  project(where: {slug: $slug}) {
-    id
-    title
-    createdAt
-    excerpt
-    coverImage {
-      url
+    skills {
+      name
+      type
+      link
     }
-    embed
+    slug
   }
 }
     `;
@@ -5379,9 +5414,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetProject(variables: GetProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetProjectQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProjectQuery>({ document: GetProjectDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetProject', 'query', variables);
-    },
-    GetProjectMetadata(variables: GetProjectMetadataQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetProjectMetadataQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetProjectMetadataQuery>({ document: GetProjectMetadataDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetProjectMetadata', 'query', variables);
     }
   };
 }

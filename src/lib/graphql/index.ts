@@ -44,6 +44,11 @@ export const GET_PROJECT = gql`
       coverImage {
         url
       }
+      skills {
+        name
+        type
+        link 
+      }
       slug
     }
   }
