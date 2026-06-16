@@ -83,7 +83,7 @@
     <div
       class="{menuOpen
         ? 'md:w-56 md:h-16 w-16 h-56'
-        : 'md:w-0 md:h-16 w-16 h-0'} overflow-hidden absolute md:right-full right-0 top-full md:top-0 transition-all duration-500"
+        : 'md:w-0 md:h-16 w-16 h-0'} overflow-hidden absolute md:right-full right-0 top-full md:top-0 transition-all duration-300"
     >
       <div
         class="md:w-56 md:h-16 w-16 h-56 flex md:flex-row flex-col gap-2 items-center justify-center flex-w"

@@ -177,4 +177,17 @@
 	.skill-framework {
 		@apply bg-purple-500/20 border-purple-500 text-purple-400;
 	}
+
+	.hover-underline {
+		background:
+			linear-gradient(currentColor 0 0) bottom left / var(--underline-width, 0%)
+			var(--underline-thickness, 0.1em) no-repeat;
+		display: inline-block;
+		transition: background-size 0.3s ease-in-out;
+	}
+
+	.hover-underline:hover,
+	.hover-underline-forced {
+		--underline-width: 100%;
+	}
 }

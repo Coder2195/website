@@ -56,17 +56,17 @@
     {
       name: "Github",
       href: "https://github.com/coder2195",
-      Icon: MdiGithub,
+      icon: MdiGithub,
     },
     {
       name: "Email",
       href: "mailto:contact@coder2195.dev",
-      Icon: MdiEmail,
+      icon: MdiEmail,
     },
     {
       name: "Public Key",
       href: "/amber.asc",
-      Icon: MaterialSymbolsKey,
+      icon: MaterialSymbolsKey,
     },
   ];
 
@@ -159,15 +159,15 @@
 <div class="min-h-screen flex justify-center items-center gap-16 flex-col">
   <h2>Get in touch.</h2>
   <div class="flex gap-4 flex-wrap justify-center">
-    {#each LINKS as { name, href, Icon }}
+    {#each LINKS as link}
       <a
-        {href}
+        href={link.href}
         target="_blank"
         rel="noopener noreferrer"
         class="button flex items-center gap-2"
       >
-        <Icon class="w-6 h-6" />
-        <span>{name}</span>
+        <link.icon class="w-6 h-6" />
+        <span>{link.name}</span>
       </a>
     {/each}
   </div>

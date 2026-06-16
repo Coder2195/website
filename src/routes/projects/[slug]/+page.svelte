@@ -1,7 +1,11 @@
 <script lang="ts">
+  import type { LinkType } from "@/lib/graphql/generated";
   import { optimize } from "@/lib/image";
   import { progress } from "@/lib/math";
+  import MaterialSymbolsCodeRounded from "~icons/material-symbols/code-rounded";
+  import MaterialSymbolsLinkRounded from "~icons/material-symbols/link-rounded";
   import MaterialSymbolsOpenInNew from "~icons/material-symbols/open-in-new";
+  import MaterialSymbolsPlayArrowRounded from "~icons/material-symbols/play-arrow-rounded";
   import type { PageProps } from "./$types";
 
   let scrollY: number = $state(0);
@@ -20,6 +24,14 @@
 
   let { data }: PageProps = $props();
   const { project } = $derived(data);
+
+  const LINK_TYPE_ICONS: {
+    [key in LinkType]: typeof MaterialSymbolsOpenInNew;
+  } = {
+    sourceCode: MaterialSymbolsCodeRounded,
+    demo: MaterialSymbolsPlayArrowRounded,
+    other: MaterialSymbolsLinkRounded,
+  };
 </script>
 
 <svelte:window bind:scrollY />
@@ -48,13 +60,12 @@
     </div>
     <div class="p-2 md:flex-1 max-h-dvh flex flex-col gap-2">
       <h2>Skills</h2>
-      <div class="flex flex-wrap gap-2 overflow-auto items-start justify-start">
+      <div
+        class="flex flex-wrap gap-2 overflow-auto items-start justify-start mb-2"
+      >
         {#each project.skills as skill}
-          <button
-            type="button"
-            onclick={() => {
-              if (skill.link) open(skill.link);
-            }}
+          <a
+            href={skill.link}
             class="border px-2 rounded-md p-1 backdrop-blur-md inline-block text-sm skill-{skill.type} hover:brightness-125 transition-all duration-300 {skill.link
               ? 'cursor-pointer'
               : ''}"
@@ -64,7 +75,22 @@
             {#if skill.link}
               <MaterialSymbolsOpenInNew class="inline-block ml-1" />
             {/if}
-          </button>
+          </a>
+        {/each}
+      </div>
+      <h2>Links</h2>
+      <div class="flex flex-col gap-1 justify-start items-start">
+        {#each project.links.map( (link) => ({ ...link, typeComponent: LINK_TYPE_ICONS[link.type] }), ) as link}
+          <a
+            href={link.url}
+            target="_blank"
+            class="text-lg flex gap-1 items-center hover-underline"
+            id="link"
+          >
+            <link.typeComponent />
+            {link.name}
+            <MaterialSymbolsOpenInNew class="inline-block ml-1" />
+          </a>
         {/each}
       </div>
     </div>

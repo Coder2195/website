@@ -49,6 +49,11 @@ export const GET_PROJECT = gql`
         type
         link 
       }
+      links {
+        name
+        url
+        type
+      }
       slug
     }
   }
