@@ -13,6 +13,6 @@
   <img
     src="/icon.png"
     alt="Logo"
-    class="w-24 h-24 animate-pulse rounded-full"
+    class="w-16 h-16 animate-pulse rounded-full"
   />
 </div>

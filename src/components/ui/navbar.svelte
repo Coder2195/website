@@ -81,20 +81,26 @@
     </button>
 
     <div
-      class="rounded {menuOpen
+      class="{menuOpen
         ? 'md:w-56 md:h-16 w-16 h-56'
-        : 'md:w-0 md:h-16 w-16 h-0'} absolute overflow-clip transition-all duration-500 flex md:flex-row flex-col gap-2 md:right-full right-0 top-full md:top-0 items-center justify-center"
+        : 'md:w-0 md:h-16 w-16 h-0'} overflow-hidden absolute md:right-full right-0 top-full md:top-0 transition-all duration-500"
     >
-      {#each LINKS as link}
-        <a
-          href={link.href}
-          class="button {menuOpen
-            ? 'w-16 h-16'
-            : 'w-0 h-0'} block p-2 transition-[width,height] delay-50 duration-300"
-        >
-          <link.Icon class="w-full h-full" aria-label={link.name} />
-        </a>
-      {/each}
+      <div
+        class="md:w-56 md:h-16 w-16 h-56 flex md:flex-row flex-col gap-2 items-center justify-center flex-w"
+      >
+        {#each LINKS as link}
+          <button
+            type="button"
+            onclick={() => {
+              menuOpen = false;
+              open(link.href);
+            }}
+            class="button w-16 h-16 block p-2 transition-[width,height] delay-50 duration-300"
+          >
+            <link.Icon class="w-full h-full" aria-label={link.name} />
+          </button>
+        {/each}
+      </div>
     </div>
   </div>
 </nav>
