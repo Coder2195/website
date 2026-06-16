@@ -10,9 +10,5 @@
     ? 'opacity-100 scale-100 pointer-events-auto'
     : 'opacity-0 scale-150 pointer-events-none'} transition-all duration-300 w-dvw h-dvh fixed top-0 left-0 bg-black z-1000 flex items-center justify-center"
 >
-  <img
-    src="/icon.png"
-    alt="Logo"
-    class="w-16 h-16 animate-pulse rounded-full"
-  />
+  <img src="/icon.png" alt="Logo" class="w- h-16 animate-pulse rounded-full" />
 </div>
