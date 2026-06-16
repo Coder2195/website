@@ -35,40 +35,54 @@
   </h1>
 </div>
 
-<div class="flex gap-4 flex-col md:flex-row" bind:this={descriptionDiv}>
-  <div class="md:w-2/3 max-h-dvh flex flex-col gap-2">
-    <h2>Description</h2>
-    <div
-      class="p-2 border my-2 rounded-xl backdrop-blur-md overflow-auto"
-      id="description"
-    >
-      {@html project.description.html}
+<div class="min-h-[calc(100dvh-15rem)]">
+  <div class="flex gap-4 flex-col md:flex-row" bind:this={descriptionDiv}>
+    <div class="md:w-3/4 max-h-dvh flex flex-col gap-2">
+      <h2>Description</h2>
+      <div
+        class="p-2 border my-2 rounded-xl backdrop-blur-md overflow-auto"
+        id="description"
+      >
+        {@html project.description.html}
+      </div>
+    </div>
+    <div class="p-2 md:flex-1 max-h-dvh flex flex-col gap-2">
+      <h2>Skills</h2>
+      <div class="flex flex-wrap gap-2 overflow-auto items-start justify-start">
+        {#each project.skills as skill}
+          <button
+            type="button"
+            onclick={() => {
+              if (skill.link) open(skill.link);
+            }}
+            class="border px-2 rounded-md p-1 backdrop-blur-md inline-block text-sm skill-{skill.type} hover:brightness-125 transition-all duration-300 {skill.link
+              ? 'cursor-pointer'
+              : ''}"
+            id="skill"
+          >
+            {skill.name}
+            {#if skill.link}
+              <MaterialSymbolsOpenInNew class="inline-block ml-1" />
+            {/if}
+          </button>
+        {/each}
+      </div>
     </div>
   </div>
-  <div class="p-2 md:flex-1 max-h-dvh flex flex-col gap-2">
-    <h2>Skills</h2>
-    <div class="flex flex-wrap gap-2 overflow-auto items-start justify-start">
-      {#each project.skills as skill}
-        <button
-          type="button"
-          onclick={() => {
-            if (skill.link) open(skill.link);
-          }}
-          class="border px-2 rounded-md p-1 backdrop-blur-md inline-block text-sm skill-{skill.type} hover:brightness-125 transition-all duration-300 {skill.link
-            ? 'cursor-pointer'
-            : ''}"
-          id="skill"
-        >
-          {skill.name}
-          {#if skill.link}
-            <MaterialSymbolsOpenInNew class="inline-block ml-1" />
-          {/if}
-        </button>
-      {/each}
-    </div>
-  </div>
-</div>
 
+  {#if project.embed}
+    <div class="my-4">
+      <h2 class="mb-2">Demo</h2>
+      <iframe
+        src={project.embed}
+        title="{project.title} Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+        class="w-full aspect-video rounded-lg border"
+        frameborder="0"
+      ></iframe>
+    </div>
+  {/if}
+</div>
 <div
   class="h-dvh w-dvw fixed left-0 top-0 -z-50 bg-black"
   style="opacity:{showGridProgress};"
