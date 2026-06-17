@@ -120,7 +120,9 @@
   >
     <div class="sticky top-1/2" bind:clientHeight={aboutMeContentHeight}>
       <h2>A curious queer programmer.</h2>
-      <p>Learn more about me -></p>
+      <a href="about-me" class="button mt-2 inline-block"
+        >Learn more about me.</a
+      >
       <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={aboutMeProgress} /></span
       >
@@ -148,7 +150,7 @@
   >
     <div class="sticky top-1/2" bind:clientHeight={experienceContentHeight}>
       <h2>A girl with 7 years of experience.</h2>
-      <p>Check out my work experience -></p>
+      <p>Check out my resume -></p>
       <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={experienceProgress} /></span
       >

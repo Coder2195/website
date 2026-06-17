@@ -50,10 +50,10 @@
       <div
         style="transform: translateX(-{(100 / PAGES) *
           pageNum}%); width: {PAGES * 100}%;"
-        class="transition-transform flex h-full justify-start"
+        class="transition-transform flex h-full justify-start duration-300"
       >
         {#each QUESTIONS as question, i}
-          <div class="w-full whitespace-nowrap h-16 p-2">
+          <div class="w-full whitespace-nowrap h-16 p-2 overflow-x-auto">
             {question}
           </div>
         {/each}
