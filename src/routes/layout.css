@@ -38,6 +38,13 @@
 	--mouse-x: -50%;
 	--mouse-y: -50%;
 	--animate-wiggle: wiggle 2s ease-in-out infinite;
+
+	--trace-size-1: 0.25rem;
+	--trace-size-2: 0.5rem;
+	--trace-size-3: 0.75rem;
+	--trace-size-4: 1rem;
+
+	--trace-color-black: var(--color-black);
 }
 
 @layer base {
@@ -74,14 +81,15 @@
 		@apply relative z-10 mx-auto tracking-tighter wrap-break-word text-xl;
 	}
 
-	body {
+	body,
+	p {
 		line-height: 1.1;
 	}
 }
 
 @layer components {
 	#title {
-		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-md border inline-block max-w-full rounded-xl;
+		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-xs border inline-block max-w-full rounded-xl;
 	}
 	#background {
 		position: fixed;
@@ -190,4 +198,13 @@
 	.hover-underline-forced {
 		--underline-width: 100%;
 	}
+}
+
+@utility trace-* {
+	-webkit-text-stroke-width: --value(--trace-size-*);
+	-webkit-text-stroke-color: --value(--trace-color-*);
+}
+
+@utility trace-outside {
+	paint-order: stroke fill;
 }
