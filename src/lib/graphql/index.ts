@@ -60,6 +60,19 @@ export const GET_PROJECT = gql`
 
 `;
 
+export const GET_SKILLS = gql`
+  query GetSkills {
+    skills {
+      projects {
+        slug
+      }
+      type
+      name
+      link
+    }
+  }
+`;
+
 export type GetProjectsTag = GetProjectsQuery["projectTags"][number];
 
 export type ProjectPreview = GetProjectsQuery["projects"][number];

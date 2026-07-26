@@ -5809,6 +5809,11 @@ export type GetProjectQueryVariables = Exact<{
 
 export type GetProjectQuery = { project: { id: string, title: string, createdAt: string, excerpt: string | null, updatedAt: string, embed: string | null, slug: string, description: { html: string }, coverImage: { url: string } | null, skills: Array<{ name: string, type: SkillType, link: string | null }>, links: Array<{ name: string, url: string, type: LinkType }> } | null };
 
+export type GetSkillsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetSkillsQuery = { skills: Array<{ type: SkillType, name: string, link: string | null, projects: Array<{ slug: string }> }> };
+
 
 export const GetProjectsDocument = gql`
     query GetProjects {
@@ -5862,6 +5867,18 @@ export const GetProjectDocument = gql`
   }
 }
     `;
+export const GetSkillsDocument = gql`
+    query GetSkills {
+  skills {
+    projects {
+      slug
+    }
+    type
+    name
+    link
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -5875,6 +5892,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetProject(variables: GetProjectQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetProjectQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetProjectQuery>({ document: GetProjectDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetProject', 'query', variables);
+    },
+    GetSkills(variables?: GetSkillsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetSkillsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetSkillsQuery>({ document: GetSkillsDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetSkills', 'query', variables);
     }
   };
 }
