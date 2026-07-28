@@ -41,9 +41,11 @@
   >
     About Me
   </h1>
-
   <div
-    class="sticky top-48 h-[calc(100dvh-13rem)] border rounded-xl flex flex-col overflow-hidden backdrop-blur-xs"
+    class="sticky top-48 h-[calc(100dvh-13rem)] border rounded-xl flex flex-col overflow-hidden backdrop-blur-xs {contentOpacity <
+    1
+      ? 'pointer-events-none'
+      : ''}"
     style="opacity: {contentOpacity}"
   >
     <div
