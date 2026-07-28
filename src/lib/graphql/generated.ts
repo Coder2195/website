@@ -5812,7 +5812,7 @@ export type GetProjectQuery = { project: { id: string, title: string, createdAt:
 export type GetSkillsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetSkillsQuery = { skills: Array<{ type: SkillType, name: string, link: string | null, projects: Array<{ slug: string }> }> };
+export type GetSkillsQuery = { skills: Array<{ type: SkillType, name: string, link: string | null, projects: Array<{ slug: string, title: string }> }> };
 
 
 export const GetProjectsDocument = gql`
@@ -5872,6 +5872,7 @@ export const GetSkillsDocument = gql`
   skills {
     projects {
       slug
+      title
     }
     type
     name

@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from "graphql-request";
-import type { GetProjectsQuery } from "./generated";
+import type { GetProjectsQuery, GetSkillsQuery } from "./generated";
 
 export const hygraph = new GraphQLClient(
 	"https://us-east-1.cdn.hygraph.com/content/cl8hzzoiu59rq01tccufrg18c/master",
@@ -65,6 +65,7 @@ export const GET_SKILLS = gql`
     skills {
       projects {
         slug
+        title
       }
       type
       name
@@ -74,5 +75,5 @@ export const GET_SKILLS = gql`
 `;
 
 export type GetProjectsTag = GetProjectsQuery["projectTags"][number];
-
+export type GetSkillsSkill = GetSkillsQuery["skills"][number];
 export type ProjectPreview = GetProjectsQuery["projects"][number];
