@@ -38,6 +38,7 @@
 	--mouse-x: -50%;
 	--mouse-y: -50%;
 	--animate-wiggle: wiggle 2s ease-in-out infinite;
+	--animate-pulse-faster: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
 	--trace-size-1: 0.25rem;
 	--trace-size-2: 0.5rem;

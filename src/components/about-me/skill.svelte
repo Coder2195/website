@@ -38,8 +38,8 @@
     class="absolute {alignRight
       ? 'right-0'
       : 'left-0'}  max-w-[35dvw] {showTooltip
-      ? 'h-max py-2 border-1'
-      : 'h-0 py-0'} w-max overflow-hidden transition-all top-[calc(100%+0.5rem)] duration-300 skill-{skill.type} px-2 rounded-lg bg-black/90 border-0"
+      ? 'scale-100 py-2 border-1'
+      : 'scale-0 py-0'} w-max overflow-hidden transition-all top-[calc(100%+0.5rem)] duration-300 skill-{skill.type} px-2 rounded-lg bg-black/90 border-0"
   >
     <div class="capitalize text-sm">{skill.type}</div>
     {#if skill.projects.length > 0}

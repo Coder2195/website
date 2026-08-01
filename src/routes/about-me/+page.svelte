@@ -1,5 +1,7 @@
 <script lang="ts">
+  import Ai from "@/components/about-me/ai.svelte";
   import Biography from "@/components/about-me/biography.svelte";
+  import Queer from "@/components/about-me/queer.svelte";
   import Section from "@/components/about-me/section.svelte";
   import Skills from "@/components/about-me/skills.svelte";
   import { clamp, progress } from "@/lib/math";
@@ -55,27 +57,10 @@
     >
       <Biography />
       <Skills {skills} />
-
-      <Section question="I'm queer!">
-        <p>
-          These days, as attacks ramp up on queer people, it is important to let
-          people know that I am just as human as anyone else.
-        </p>
-        <p>
-          I'm a trans woman, and do not appreciate being misgendered and using
-          male pronouns or my deadname on me. Please use she/her pronouns and
-          address me by my preferred name.
-        </p>
-      </Section>
-
-      <Section question="My stance on AI">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-          suscipit veritatis omnis aliquam hic sit iusto impedit, vitae
-          dignissimos fugit nostrum voluptate consequuntur quibusdam id
-          asperiores autem sapiente aspernatur fuga.
-        </p>
-      </Section>
+      <Queer />
+      {#key pageNum === 3}
+        <Ai />
+      {/key}
 
       <Section question="What are my future plans?">
         <p>
