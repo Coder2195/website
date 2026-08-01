@@ -2,7 +2,7 @@
   import { fade } from "svelte/transition";
   import Section from "./section.svelte";
 
-  let progress = $state(-2);
+  let progress = $state(100);
 
   $effect(() => {
     const interval = setInterval(() => {
@@ -43,6 +43,17 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
       class="rounded-2xl p-2 px-4 bg-white/10 inline-block text-sm max-w-2/3"
     >
       {partialResponse}
+    </div>
+  {/if}
+
+  {#if partialResponse.length === RESPONSE.length}
+    <div class="text-center mt-8 py-4 text-sm text-gray-500">
+      You have run out of credits. Please donate at <a
+        href="http://ko-fi.com/coder2195"
+        target="_blank"
+        class="text-blue-500 hover-underline"
+        rel="noopener noreferrer">ko-fi.com/coder2195</a
+      > to get nothing.
     </div>
   {/if}
 </Section>
