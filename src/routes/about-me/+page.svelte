@@ -12,7 +12,7 @@
   let titleHeight = $derived(title?.clientHeight ?? 0);
 
   let heightTracker: HTMLDivElement | undefined = $state();
-  let contentHeight = $derived(heightTracker?.clientHeight ?? 0);
+  let contentHeight = $state(0);
   let contentOffsetTop = $derived(heightTracker?.offsetTop ?? 0);
   let contentOpacity = $derived(
     progress(scrollY, titleHeight, contentOffsetTop),
@@ -20,10 +20,8 @@
   const PAGES = 5;
   let pageNum = $derived(
     clamp(
-      Math.floor(
-        progress(scrollY, contentOffsetTop, contentOffsetTop + contentHeight) *
-          5,
-      ),
+      // idk why but only this works for even distrubition lol
+      Math.floor(progress(scrollY, contentOffsetTop, contentHeight) * 5),
       0,
       PAGES - 1,
     ),
@@ -55,14 +53,46 @@
       style="transform: translateX({(-pageNum / PAGES) * 100}%); width: {PAGES *
         100}%;"
     >
-      <Biography />
-      <Skills {skills} />
-      <Queer />
+      <Biography
+        progress={progress(
+          scrollY,
+          contentOffsetTop,
+          contentHeight / 5 + (4 * contentOffsetTop) / 5,
+        )}
+      />
+      <Skills
+        {skills}
+        progress={progress(
+          scrollY,
+          contentHeight / 5 + (4 * contentOffsetTop) / 5,
+          (contentHeight / 5) * 2 + (3 * contentOffsetTop) / 5,
+        )}
+      />
+      <Queer
+        progress={progress(
+          scrollY,
+          (contentHeight / 5) * 2 + (3 * contentOffsetTop) / 5,
+          (contentHeight / 5) * 3 + (2 * contentOffsetTop) / 5,
+        )}
+      />
       {#key pageNum === 3}
-        <Ai />
+        <Ai
+          progress={progress(
+            scrollY,
+            (contentHeight / 5) * 3 + (2 * contentOffsetTop) / 5,
+            (contentHeight / 5) * 4 + (1 * contentOffsetTop) / 5,
+          )}
+        />
       {/key}
 
-      <Section question="What are my future plans?">
+      <Section
+        question="What are my future plans?"
+        progress={progress(
+          scrollY,
+          (contentHeight / 5) * 4 + (1 * contentOffsetTop) / 5,
+          contentHeight,
+        )}
+      >
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
           dignissimos aliquam blanditiis optio? Suscipit quas laborum molestias
@@ -72,5 +102,9 @@
       </Section>
     </div>
   </div>
-  <div style="height: {PAGES * 200}dvh;" bind:this={heightTracker}></div>
+  <div
+    style="height: calc({PAGES * 300}dvh);"
+    bind:clientHeight={contentHeight}
+    bind:this={heightTracker}
+  ></div>
 </div>

@@ -1,8 +1,10 @@
 <script lang="ts">
   import Section from "./section.svelte";
+
+  let { progress }: { progress: number } = $props();
 </script>
 
-<Section question="I'm queer!">
+<Section question="I'm queer!" {progress}>
   <p>
     These days, as attacks ramp up on queer people, it is important to let
     people know that I am just as human as anyone else.

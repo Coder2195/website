@@ -40,9 +40,11 @@
       style: "border-color: #cd071e; color: #cd071e;",
     },
   ];
+
+  let { progress }: { progress: number } = $props();
 </script>
 
-<Section question="Biography">
+<Section question="Biography" {progress}>
   <div class="flex flex-col sm:flex-row justify-between gap-4">
     <div class="sm:w-1/3">
       <img

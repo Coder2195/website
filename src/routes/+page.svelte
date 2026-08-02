@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ScrollProgress from "@/components/home/scroll-progress.svelte";
+  import ScrollProgress from "@/components/ui/scroll-progress.svelte";
   import { progress } from "@/lib/math";
   import MaterialSymbolsKey from "~icons/material-symbols/key";
   import MdiEmail from "~icons/mdi/email";
