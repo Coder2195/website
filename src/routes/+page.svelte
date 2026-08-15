@@ -150,7 +150,9 @@
   >
     <div class="sticky top-1/2" bind:clientHeight={experienceContentHeight}>
       <h2>A girl with 7 years of experience.</h2>
-      <p>Check out my resume -></p>
+      <a href="experience" class="button mt-2 inline-block"
+        >See my experience.</a
+      >
       <span class="absolute right-0 -bottom-16"
         ><ScrollProgress progress={experienceProgress} /></span
       >
