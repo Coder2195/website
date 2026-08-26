@@ -12,32 +12,38 @@
       icon: MaterialSymbolsLocationOnOutline,
       text: "Brooklyn, NY",
       style: "border-color: #34d399; color: #34d399;",
+      alt: "Location: ",
     },
     {
       icon: LucideGraduationCap,
       text: `RIT Class of 2029, <a class="hover-underline" href="https://www.rit.edu/study/web-and-mobile-computing-bs" target="blank">Web & Mobile Computing B.S.</a>`,
       style: "border-color: #60a5fa; color: #60a5fa;",
+      alt: "Education: ",
     },
 
     {
       icon: LucideGraduationCap,
       text: `BTHS Class of 2025, <a class="hover-underline" href="https://www.bths.edu/apps/pages/index.jsp?uREC_ID=231673&type=d" target="blank">Software Engineering major</a>`,
       style: "border-color: #60a5fa; color: #60a5fa;",
+      alt: "Education: ",
     },
     {
       icon: FeBirthdayCake,
       text: `${new Date().getFullYear() - 2007 + (new Date().getMonth() < 8 && new Date().getDate() < 27 ? -1 : 0)} years old`,
       style: "border-color: #fbbf24; color: #fbbf24;",
+      alt: "Birthday: ",
     },
     {
       icon: MaterialSymbolsWomanSharp,
       text: `Trans Woman (she/her)`,
       style: "border-color: #ec4899; color: #ec4899;",
+      alt: "Gender: ",
     },
     {
       icon: MaterialSymbolsGlobeAsia,
       text: "Chinese-American (born in the USA)",
-      style: "border-color: #cd071e; color: #cd071e;",
+      style: "border-color: #F8495D; color: #F8495D;",
+      alt: "Ethnicity: ",
     },
   ];
 
@@ -61,7 +67,7 @@
             class="flex items-center gap-1 p-1 border rounded-lg w-fit text-sm hover:scale-105 transition-transform duration-300 hover:cursor-pointer"
             style={tag.style}
           >
-            <tag.icon />
+            <tag.icon aria-label={tag.alt} />
             {@html tag.text}
           </div>
         {/each}

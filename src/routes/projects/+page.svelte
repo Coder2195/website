@@ -37,16 +37,14 @@
 
 <svelte:window bind:scrollY />
 
-<div class="h-[75dvh]">
-  <h1
-    id="title"
-    bind:this={title}
-    style="font-size:{5 -
-      1.5 * progress(scrollY, 0, projectsOffsetTop * 0.75)}rem"
-  >
-    Projects
-  </h1>
-</div>
+<h1
+  id="title"
+  bind:this={title}
+  style="margin-bottom: calc(-6rem + 40dvh); font-size:{5 -
+    1.5 * progress(scrollY, 0, projectsOffsetTop * 0.75)}rem"
+>
+  Projects
+</h1>
 <div
   bind:this={projectsDiv}
   class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 mb-16"

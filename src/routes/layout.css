@@ -90,7 +90,7 @@
 
 @layer components {
 	#title {
-		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 z-10 py-3 px-6 backdrop-blur-xs border inline-block max-w-full rounded-xl;
+		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 py-3 px-6 backdrop-blur-sm border inline-block max-w-full rounded-xl z-30;
 	}
 	#background {
 		position: fixed;
@@ -100,8 +100,8 @@
 		width: 100dvw;
 		height: 100dvh;
 		background-image:
-			linear-gradient(to right, #ffffff99 0.25px, transparent 0.1em),
-			linear-gradient(to bottom, #ffffff99 0.25px, transparent 0.1em);
+			linear-gradient(to right, #ffffffff 0.25px, transparent 0.1em),
+			linear-gradient(to bottom, #ffffffff 0.25px, transparent 0.1em);
 		background-size: 0.8em 0.8em;
 		background-repeat: repeat;
 	}

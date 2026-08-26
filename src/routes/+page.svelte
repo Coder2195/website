@@ -170,7 +170,7 @@
         rel="noopener noreferrer"
         class="button flex items-center gap-2"
       >
-        <link.icon class="w-6 h-6" />
+        <link.icon class="w-6 h-6" aria-label="({link.name} Icon)" />
         <span>{link.name}</span>
       </a>
     {/each}

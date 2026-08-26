@@ -21,6 +21,4 @@
 />
 
 <div id="background"></div>
-
-<div id="background"></div>
 <div id="background-mask"></div>

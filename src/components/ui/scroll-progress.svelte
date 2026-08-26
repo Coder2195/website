@@ -5,6 +5,7 @@
 </script>
 
 <svg
+  aria-label="{Math.round(progress * 100)}% Complete"
   width="3em"
   height="3em"
   viewBox="0 0 30 30"

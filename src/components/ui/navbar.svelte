@@ -1,5 +1,6 @@
 <script lang="ts">
   let menuOpen = $state(false);
+  let menuFocus = $state(false);
   let menu: HTMLElement | undefined = $state();
 
   import MaterialSymbolsAccountCircle from "~icons/material-symbols/account-circle";
@@ -29,6 +30,8 @@
       menuOpen = false;
     }
   }
+
+  const isOpen = $derived(menuFocus || menuOpen);
 </script>
 
 <svelte:window
@@ -40,6 +43,7 @@
   }}
   onscroll={() => {
     menuOpen = false;
+    menuFocus = false;
   }}
 />
 
@@ -57,31 +61,38 @@
   >
     <button
       type="button"
-      onclick={() => {
+      onclick={(e) => {
+        if (menuOpen) {
+          e.currentTarget.blur();
+          menuFocus = false;
+        }
         menuOpen = !menuOpen;
       }}
+      onfocus={() => {
+        menuFocus = true;
+      }}
       class="aspect-square h-16 button overflow-hidden"
-      aria-label="{menuOpen ? 'Close' : 'Open'} Menu"
+      aria-label="{isOpen ? 'Close' : 'Open'} Menu"
     >
       <span
-        class="block w-2/3 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-300 {menuOpen
+        class="block w-2/3 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-300 {isOpen
           ? 'rotate-45 top-1/2'
           : 'rotate-0 top-1/3'}"
       ></span>
       <span
-        class="block w-2/3 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all top-1/2 duration-300 {menuOpen
+        class="block w-2/3 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all top-1/2 duration-300 {isOpen
           ? '-left-1/2'
           : 'left-1/2'}"
       ></span>
       <span
-        class="block w-2/3 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-300 {menuOpen
+        class="block w-2/3 h-1 bg-white rounded-full absolute -translate-x-1/2 -translate-y-1/2 transition-all left-1/2 duration-300 {isOpen
           ? '-rotate-45 top-1/2'
           : 'rotate-0 top-2/3'}"
       ></span>
     </button>
 
     <div
-      class="{menuOpen
+      class="{isOpen
         ? 'md:w-56 md:h-16 w-16 h-56'
         : 'md:w-0 md:h-16 w-16 h-0'} overflow-hidden absolute md:right-full right-0 top-full md:top-0 transition-all duration-300"
     >

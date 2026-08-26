@@ -68,7 +68,7 @@
         <br />
         <button
           type="button"
-          class="text-zinc-500 cursor-pointer"
+          class="text-gray-400 cursor-pointer"
           onclick={() => {
             textProgress = RESPONSE.length;
           }}>(Skip)</button
@@ -78,7 +78,7 @@
   {/if}
 
   {#if textProgress >= RESPONSE.length}
-    <div class="text-center mt-8 py-4 text-sm text-gray-500">
+    <div class="text-center mt-8 py-4 text-sm text-gray-400">
       You have run out of credits. Please donate at <a
         href="http://ko-fi.com/coder2195"
         target="_blank"
