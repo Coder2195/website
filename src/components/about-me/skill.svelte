@@ -51,7 +51,7 @@
             <a
               class="hover-underline"
               href="/projects/{project.slug}"
-              tabindex="0">{project.title}</a
+              tabindex="0">{project.name}</a
             >
           {/each}
         </div>

@@ -3,7 +3,7 @@
 
   let { progress }: { progress: number } = $props();
 
-  const HRT_DATE = new Date("2026-7-11");
+  const HRT_DATE = new Date("2026-7-7");
   const daysSince = Math.floor(
     (Date.now() - HRT_DATE.getTime()) / (1000 * 60 * 60 * 24),
   );

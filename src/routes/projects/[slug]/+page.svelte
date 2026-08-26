@@ -43,7 +43,7 @@
     style="font-size:{5 -
       1.5 * progress(scrollY, 0, contentOffsetTop * 0.75)}rem"
   >
-    {project.title}
+    {project.name}
   </h1>
 </div>
 
@@ -101,7 +101,7 @@
       <h2 class="mb-2">Demo</h2>
       <iframe
         src={project.embed}
-        title="{project.title} Demo"
+        title="{project.name} Demo"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
         class="w-full aspect-video rounded-lg border"
         frameborder="0"

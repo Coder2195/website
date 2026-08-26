@@ -30,7 +30,7 @@
 >
   <span
     class="w-4 h-4 absolute -left-2 top-4.5 border-2 rounded-full block z-10 {current
-      ? 'animate-pulse-faster border-green-300 bg-green-500'
+      ? 'animate-pulse-faster border-green-300   bg-green-400'
       : 'border-white bg-black'}"
   ></span>
   <span class="w-4 h-4 absolute -left-2 top-4.5 rounded-full block z-5 bg-black"

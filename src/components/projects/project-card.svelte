@@ -45,7 +45,7 @@
     <div class="aspect-video relative overflow-hidden">
       <img
         srcset={optimize(project.coverImage.url, [240, 480, 720])}
-        alt={project.title}
+        alt={project.name}
         width={480}
         height={270}
         class="object-cover object-center w-full h-full"
@@ -57,7 +57,7 @@
       {#if project.featured}
         <Fa6SolidThumbtack aria-label="Featured" class="inline w-4 h-4" />
       {/if}
-      {project.title}
+      {project.name}
     </h4>
     <div class="flex items-center gap-2 flex-wrap">
       {#each project.tags.map((tag) => tag.id) as tagId}

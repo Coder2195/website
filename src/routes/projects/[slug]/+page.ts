@@ -57,7 +57,7 @@ export const load: PageLoad = async ({ params }) => {
 		: {};
 
 	const pageMetaTags: MetaTagsProps = {
-		title: `Project: ${project.title}`,
+		title: `Project: ${project.name}`,
 		description: project.excerpt || "Check out this cool project I made!",
 		openGraph: {
 			...video,

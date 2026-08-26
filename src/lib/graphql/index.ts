@@ -14,7 +14,7 @@ export const GET_PROJECTS = gql`
     }
     projects {
       id
-      title
+      name
       date
       excerpt
       tags {
@@ -33,7 +33,7 @@ export const GET_PROJECT = gql`
   query GetProject($slug: String!) {
     project(where: { slug: $slug }) {
       id
-      title
+      name
       createdAt
       excerpt
       updatedAt
@@ -65,7 +65,7 @@ export const GET_SKILLS = gql`
     skills {
       projects {
         slug
-        title
+        name
       }
       type
       name
