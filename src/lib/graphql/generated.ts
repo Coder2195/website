@@ -6602,10 +6602,10 @@ export type WorkExperience = Entity & Node & {
   createdAt: Scalars['DateTime']['output'];
   /** User that created this document */
   createdBy?: Maybe<User>;
-  current?: Maybe<Scalars['Boolean']['output']>;
   description?: Maybe<RichText>;
   /** Get the document in other stages */
   documentInStages: Array<WorkExperience>;
+  endDate?: Maybe<Scalars['Date']['output']>;
   /** List of WorkExperience versions */
   history: Array<Version>;
   /** The unique identifier */
@@ -6621,6 +6621,7 @@ export type WorkExperience = Entity & Node & {
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
+  startDate: Scalars['Date']['output'];
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
@@ -6690,12 +6691,13 @@ export type WorkExperienceConnection = {
 
 export type WorkExperienceCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  current?: InputMaybe<Scalars['Boolean']['input']>;
   description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  endDate?: InputMaybe<Scalars['Date']['input']>;
   location: Scalars['String']['input'];
   locationUrl?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
   position: Scalars['String']['input'];
+  startDate: Scalars['Date']['input'];
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -6748,12 +6750,24 @@ export type WorkExperienceManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  current?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  current_not?: InputMaybe<Scalars['Boolean']['input']>;
   documentInStages_every?: InputMaybe<WorkExperienceWhereStageInput>;
   documentInStages_none?: InputMaybe<WorkExperienceWhereStageInput>;
   documentInStages_some?: InputMaybe<WorkExperienceWhereStageInput>;
+  endDate?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than the given value. */
+  endDate_gt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than or equal the given value. */
+  endDate_gte?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are contained in given list. */
+  endDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  /** All values less than the given value. */
+  endDate_lt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values less than or equal the given value. */
+  endDate_lte?: InputMaybe<Scalars['Date']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  endDate_not?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are not contained in given list. */
+  endDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -6868,6 +6882,21 @@ export type WorkExperienceManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  startDate?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than the given value. */
+  startDate_gt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than or equal the given value. */
+  startDate_gte?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are contained in given list. */
+  startDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  /** All values less than the given value. */
+  startDate_lt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values less than or equal the given value. */
+  startDate_lte?: InputMaybe<Scalars['Date']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  startDate_not?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are not contained in given list. */
+  startDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -6889,8 +6918,8 @@ export type WorkExperienceManyWhereInput = {
 export type WorkExperienceOrderByInput =
   | 'createdAt_ASC'
   | 'createdAt_DESC'
-  | 'current_ASC'
-  | 'current_DESC'
+  | 'endDate_ASC'
+  | 'endDate_DESC'
   | 'id_ASC'
   | 'id_DESC'
   | 'locationUrl_ASC'
@@ -6903,16 +6932,19 @@ export type WorkExperienceOrderByInput =
   | 'position_DESC'
   | 'publishedAt_ASC'
   | 'publishedAt_DESC'
+  | 'startDate_ASC'
+  | 'startDate_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
 
 export type WorkExperienceUpdateInput = {
-  current?: InputMaybe<Scalars['Boolean']['input']>;
   description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  endDate?: InputMaybe<Scalars['Date']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
   locationUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   position?: InputMaybe<Scalars['String']['input']>;
+  startDate?: InputMaybe<Scalars['Date']['input']>;
 };
 
 export type WorkExperienceUpdateManyInlineInput = {
@@ -6933,12 +6965,13 @@ export type WorkExperienceUpdateManyInlineInput = {
 };
 
 export type WorkExperienceUpdateManyInput = {
-  current?: InputMaybe<Scalars['Boolean']['input']>;
   description?: InputMaybe<Scalars['RichTextAST']['input']>;
+  endDate?: InputMaybe<Scalars['Date']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
   locationUrl?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   position?: InputMaybe<Scalars['String']['input']>;
+  startDate?: InputMaybe<Scalars['Date']['input']>;
 };
 
 export type WorkExperienceUpdateManyWithNestedWhereInput = {
@@ -7016,12 +7049,24 @@ export type WorkExperienceWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  current?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  current_not?: InputMaybe<Scalars['Boolean']['input']>;
   documentInStages_every?: InputMaybe<WorkExperienceWhereStageInput>;
   documentInStages_none?: InputMaybe<WorkExperienceWhereStageInput>;
   documentInStages_some?: InputMaybe<WorkExperienceWhereStageInput>;
+  endDate?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than the given value. */
+  endDate_gt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than or equal the given value. */
+  endDate_gte?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are contained in given list. */
+  endDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  /** All values less than the given value. */
+  endDate_lt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values less than or equal the given value. */
+  endDate_lte?: InputMaybe<Scalars['Date']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  endDate_not?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are not contained in given list. */
+  endDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   id?: InputMaybe<Scalars['ID']['input']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']['input']>;
@@ -7136,6 +7181,21 @@ export type WorkExperienceWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  startDate?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than the given value. */
+  startDate_gt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values greater than or equal the given value. */
+  startDate_gte?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are contained in given list. */
+  startDate_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  /** All values less than the given value. */
+  startDate_lt?: InputMaybe<Scalars['Date']['input']>;
+  /** All values less than or equal the given value. */
+  startDate_lte?: InputMaybe<Scalars['Date']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  startDate_not?: InputMaybe<Scalars['Date']['input']>;
+  /** All values that are not contained in given list. */
+  startDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -7281,6 +7341,11 @@ export type GetSkillsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetSkillsQuery = { skills: Array<{ type: SkillType, name: string, link: string | null, projects: Array<{ slug: string, name: string }> }> };
 
+export type GetExperienceQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetExperienceQuery = { workExperiences: Array<{ name: string, startDate: string, endDate: string | null, location: string, locationUrl: string | null, position: string, description: { html: string } | null }> };
+
 
 export const GetProjectsDocument = gql`
     query GetProjects {
@@ -7347,6 +7412,21 @@ export const GetSkillsDocument = gql`
   }
 }
     `;
+export const GetExperienceDocument = gql`
+    query GetExperience {
+  workExperiences {
+    name
+    startDate
+    endDate
+    description {
+      html
+    }
+    location
+    locationUrl
+    position
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -7363,6 +7443,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetSkills(variables?: GetSkillsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetSkillsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetSkillsQuery>({ document: GetSkillsDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetSkills', 'query', variables);
+    },
+    GetExperience(variables?: GetExperienceQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<GetExperienceQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetExperienceQuery>({ document: GetExperienceDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'GetExperience', 'query', variables);
     }
   };
 }

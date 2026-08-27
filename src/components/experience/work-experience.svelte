@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
   import LucideClock3 from "~icons/lucide/clock-3";
   import MaterialSymbolsOpenInNew from "~icons/material-symbols/open-in-new";
   import MdiMapMarker from "~icons/mdi/map-marker";
@@ -7,20 +6,25 @@
   let {
     name,
     position,
-    timeFrame,
-    current,
+    startDate: startDateString,
+    endDate: endDateString,
     location,
     locationUrl,
-    children,
+    description,
   }: {
     name: string;
     position: string;
     location: string;
+    startDate: string;
+    endDate?: string;
     locationUrl?: string;
-    timeFrame: string;
-    current?: boolean;
-    children?: Snippet;
+    description?: string;
   } = $props();
+
+  const startDate = $derived(new Date(startDateString));
+  const endDate = $derived(endDateString && new Date(endDateString));
+
+  const current = $derived(!endDate || endDate > new Date());
 </script>
 
 <div
@@ -50,12 +54,25 @@
     </a>
     <span class="text-amber-500">{position}</span>
     <span class="text-gray-400 flex items-center gap-1"
-      ><LucideClock3 aria-label="Time Frame: " />{timeFrame}</span
+      ><LucideClock3 aria-label="Time Frame: " />{startDate.toLocaleDateString(
+        undefined,
+        {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        },
+      )} - {endDate
+        ? endDate.toLocaleDateString(undefined, {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })
+        : "Current"}</span
     >
   </div>
-  {#if children}
+  {#if description}
     <div class="mt-4">
-      {@render children()}
+      {@html description}
     </div>
   {/if}
 </div>

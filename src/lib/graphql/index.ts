@@ -74,6 +74,22 @@ export const GET_SKILLS = gql`
   }
 `;
 
+export const GET_EXPERIENCE = gql`
+  query GetExperience {
+    workExperiences(orderBy:startDate_DESC) {
+      name
+      startDate
+      endDate
+      description {
+        html
+      }
+      location
+      locationUrl
+      position
+    }
+  }
+`;
+
 export type GetProjectsTag = GetProjectsQuery["projectTags"][number];
 export type GetSkillsSkill = GetSkillsQuery["skills"][number];
 export type ProjectPreview = GetProjectsQuery["projects"][number];
