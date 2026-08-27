@@ -61,7 +61,7 @@
           day: "numeric",
           year: "numeric",
         },
-      )} - {endDate
+      )} - {endDate && endDate < new Date()
         ? endDate.toLocaleDateString(undefined, {
             month: "long",
             day: "numeric",
