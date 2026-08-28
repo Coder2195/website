@@ -16,9 +16,8 @@
   let show = $state(false);
   let element: HTMLAnchorElement;
   $effect(() => {
-    let timeout: NodeJS.Timeout;
     const intersectionObserver = new IntersectionObserver(
-      (entries, observer) => {
+      (entries) => {
         for (const entry of entries) {
           if (entry.intersectionRatio > 0) {
             console.log(entry.intersectionRatio);

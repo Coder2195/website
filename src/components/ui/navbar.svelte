@@ -3,15 +3,15 @@
   let menuFocus = $state(false);
   let menu: HTMLElement | undefined = $state();
 
-  import MaterialSymbolsAccountCircle from "~icons/material-symbols/account-circle";
   import MaterialSymbolsCardsStackOutlineRounded from "~icons/material-symbols/cards-stack-outline-rounded";
   import MaterialSymbolsFolderCodeOutline from "~icons/material-symbols/folder-code-outline";
+  import MaterialSymbolsPerson from "~icons/material-symbols/person";
 
   const LINKS = [
     {
       name: "About Me",
       href: "/about-me",
-      Icon: MaterialSymbolsAccountCircle,
+      Icon: MaterialSymbolsPerson,
     },
     {
       name: "Projects",

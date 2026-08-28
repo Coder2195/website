@@ -100,8 +100,8 @@
 		width: 100dvw;
 		height: 100dvh;
 		background-image:
-			linear-gradient(to right, #ffffffff 0.25px, transparent 0.1em),
-			linear-gradient(to bottom, #ffffffff 0.25px, transparent 0.1em);
+			linear-gradient(to right, #ffffffff 0.05em, transparent 0.05em),
+			linear-gradient(to bottom, #ffffffff 0.05em, transparent 0.05em);
 		background-size: 0.8em 0.8em;
 		background-repeat: repeat;
 	}

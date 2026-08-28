@@ -22,7 +22,7 @@
   Experience
 </h1>
 
-<div class="relative pt-32 mb-10" bind:this={experienceDiv}>
+<div class="relative mb-10" bind:this={experienceDiv}>
   {#each workExperiences as { name, location, position, locationUrl, description, startDate, endDate }}
     <WorkExperience
       description={description?.html}
