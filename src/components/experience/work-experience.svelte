@@ -64,19 +64,21 @@
 
   <h3>{name}</h3>
   <div class="text-sm flex gap-x-4 flex-wrap mt-4">
-    <a
-      href={locationUrl ||
-        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`}
-      class="text-sm text-blue-500 items-center hover-underline w-fit"
-      target="_blank"
-    >
-      <MdiMapMarker aria-label="Location: " class="inline align-text-top" />
-      {location}
-      <MaterialSymbolsOpenInNew
-        aria-label="(open link in new tab)"
-        class="inline align-text-top"
-      />
-    </a>
+    <span>
+      <a
+        href={locationUrl ||
+          `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`}
+        class="text-sm text-blue-500 items-center hover-underline w-fit inline"
+        target="_blank"
+      >
+        <MdiMapMarker aria-label="Location: " class="inline align-text-top" />
+        {location}
+        <MaterialSymbolsOpenInNew
+          aria-label="(open link in new tab)"
+          class="inline align-text-top"
+        />
+      </a>
+    </span>
     <span class="text-amber-500">{position}</span>
     <span class="text-gray-400"
       ><LucideClock3 aria-label="Time Frame: " class="inline align-text-top" />
