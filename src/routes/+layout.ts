@@ -30,5 +30,3 @@ export const load: LayoutLoad = async ({ url }) => {
 		baseMetaTags,
 	};
 };
-
-export const prerender = true;

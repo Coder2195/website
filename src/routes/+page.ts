@@ -10,3 +10,5 @@ export const load: PageLoad = () => {
 		pageMetaTags,
 	};
 };
+
+export const prerender = true;
