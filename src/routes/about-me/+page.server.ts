@@ -9,6 +9,8 @@ export const config = {
 	},
 };
 
+export const prerender = "auto";
+
 export const load: PageServerLoad = async () => {
 	const pageMetaTags: MetaTagsProps = {
 		title: "About Me",

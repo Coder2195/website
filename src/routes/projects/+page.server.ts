@@ -9,6 +9,8 @@ export const config = {
 	},
 };
 
+export const prerender = "auto";
+
 export const load: PageServerLoad = async () => {
 	const data = await hygraph.request<GetProjectsQuery>(GET_PROJECTS);
 

@@ -3,6 +3,14 @@ import { GET_EXPERIENCE, hygraph } from "@/lib/graphql";
 import type { GetExperienceQuery } from "@/lib/graphql/generated";
 import type { PageServerLoad } from "./$types";
 
+export const config = {
+	isr: {
+		expiration: 60,
+	},
+};
+
+export const prerender = "auto";
+
 export const load: PageServerLoad = async () => {
 	let { workExperiences, courses } =
 		await hygraph.request<GetExperienceQuery>(GET_EXPERIENCE);
@@ -24,10 +32,4 @@ export const load: PageServerLoad = async () => {
 		courses,
 		pageMetaTags,
 	};
-};
-
-export const config = {
-	isr: {
-		expiration: 60,
-	},
 };
