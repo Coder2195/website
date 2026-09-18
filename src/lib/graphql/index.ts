@@ -87,6 +87,11 @@ export const GET_EXPERIENCE = gql`
       locationUrl
       position
     }
+    
+    courses {
+      name
+      courseCode
+    }
   }
 `;
 

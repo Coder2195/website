@@ -16,9 +16,9 @@
     position: string;
     location: string;
     startDate: string;
-    endDate?: string;
-    locationUrl?: string;
-    description?: string;
+    endDate?: string | null;
+    locationUrl?: string | null;
+    description?: string | null;
   } = $props();
 
   const startDate = $derived(new Date(startDateString));
@@ -50,7 +50,7 @@
   bind:this={element}
   role="menuitem"
   tabindex="0"
-  class="border rounded-lg p-2 px-6 text-base bg-black relative my-10 group {show
+  class="border rounded-lg p-2 px-6 text-base bg-white/5 backdrop-blur-sm relative my-10 group {show
     ? 'opacity-100 scale-100'
     : 'opacity-0 scale-0'} duration-500 transition-all ease-in-out hover:scale-105 cursor-pointer"
 >

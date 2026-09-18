@@ -90,7 +90,7 @@
 
 @layer components {
 	#title {
-		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 py-3 px-6 backdrop-blur-sm border inline-block max-w-full rounded-xl z-30;
+		@apply text-red-500 sm:mt-[calc(50vh-6rem)] mt-[calc(50vh-12rem)] font-bold sticky top-24 mb-8 py-3 px-6 bg-white/5 backdrop-blur-sm border inline-block max-w-full rounded-xl z-30;
 	}
 	#background {
 		position: fixed;
@@ -145,7 +145,7 @@
 	}
 
 	.button {
-		@apply border border-white/20 backdrop-blur-sm px-4 p-2 rounded-full hover:bg-white/10 transition-colors duration-300;
+		@apply border border-white/20 backdrop-blur-sm px-4 p-2 rounded-full hover:bg-white/15 bg-white/5 transition-colors duration-300;
 	}
 
 	#description {

@@ -2,6 +2,7 @@
   import WorkExperience from "@/components/experience/work-experience.svelte";
   import { progress } from "@/lib/math";
   import type { PageProps } from "./$types";
+  import Course from "@/components/experience/course.svelte";
 
   let scrollY: number = $state(0);
 
@@ -9,7 +10,7 @@
   let experienceOffsetTop = $derived(experienceDiv?.offsetTop ?? 0);
 
   let { data }: PageProps = $props();
-  const { workExperiences } = $derived(data);
+  const { workExperiences, courses } = $derived(data);
 </script>
 
 <svelte:window bind:scrollY />
@@ -23,15 +24,13 @@
 </h1>
 
 <div class="relative mb-10" bind:this={experienceDiv}>
-  {#each workExperiences as { name, location, position, locationUrl, description, startDate, endDate }}
-    <WorkExperience
-      description={description?.html}
-      {name}
-      {location}
-      locationUrl={locationUrl || undefined}
-      {position}
-      {startDate}
-      endDate={endDate || undefined}
-    />
+  {#each workExperiences as { description, ...attributes }}
+    <WorkExperience description={description?.html} {...attributes} />
+  {/each}
+</div>
+
+<div class="grid grid-cols-4 gap-4 my-10 items-start">
+  {#each courses as course}
+    <Course {...course} />
   {/each}
 </div>

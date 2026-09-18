@@ -7344,7 +7344,7 @@ export type GetSkillsQuery = { skills: Array<{ type: SkillType, name: string, li
 export type GetExperienceQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetExperienceQuery = { workExperiences: Array<{ name: string, startDate: string, endDate: string | null, location: string, locationUrl: string | null, position: string, description: { html: string } | null }> };
+export type GetExperienceQuery = { workExperiences: Array<{ name: string, startDate: string, endDate: string | null, location: string, locationUrl: string | null, position: string, description: { html: string } | null }>, courses: Array<{ name: string, courseCode: string | null }> };
 
 
 export const GetProjectsDocument = gql`
@@ -7414,7 +7414,7 @@ export const GetSkillsDocument = gql`
     `;
 export const GetExperienceDocument = gql`
     query GetExperience {
-  workExperiences {
+  workExperiences(orderBy: startDate_DESC) {
     name
     startDate
     endDate
@@ -7424,6 +7424,10 @@ export const GetExperienceDocument = gql`
     location
     locationUrl
     position
+  }
+  courses {
+    name
+    courseCode
   }
 }
     `;

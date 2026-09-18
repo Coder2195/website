@@ -1,9 +1,15 @@
 import type { MetaTagsProps } from "svelte-meta-tags";
 import { GET_SKILLS, hygraph } from "@/lib/graphql";
 import type { GetSkillsQuery } from "@/lib/graphql/generated";
-import type { PageLoad } from "./$types";
+import type { PageServerLoad } from "./$types";
 
-export const load: PageLoad = async () => {
+export const config = {
+	isr: {
+		expiration: 60,
+	},
+};
+
+export const load: PageServerLoad = async () => {
 	const pageMetaTags: MetaTagsProps = {
 		title: "About Me",
 	};

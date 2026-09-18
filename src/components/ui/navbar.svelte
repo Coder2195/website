@@ -48,9 +48,7 @@
 />
 
 <nav>
-  <div
-    class="border border-white/20 backdrop-blur-md w-16 h-16 p-2 rounded-full"
-  >
+  <div class="border w-16 h-16 p-2 button">
     <a href="/">
       <img src="/icon.png" alt="Home" class="w-full h-full rounded-full" /></a
     >
