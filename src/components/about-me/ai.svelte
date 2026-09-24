@@ -30,8 +30,6 @@
     .flatMap((l) => (l.startsWith("<") ? [l] : l.split(" ")))
     .flatMap((l) => l.replaceAll("\n", " "));
 
-  console.log(RESPONSE);
-
   $effect(() => {
     const interval = setInterval(() => {
       textProgress += Math.random() * 2 + 0.5;

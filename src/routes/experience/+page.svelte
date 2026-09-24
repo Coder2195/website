@@ -1,8 +1,8 @@
 <script lang="ts">
+  import Course from "@/components/experience/course.svelte";
   import WorkExperience from "@/components/experience/work-experience.svelte";
   import { progress } from "@/lib/math";
   import type { PageProps } from "./$types";
-  import Course from "@/components/experience/course.svelte";
 
   let scrollY: number = $state(0);
 

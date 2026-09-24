@@ -77,9 +77,13 @@
 
 	main {
 		max-width: 72rem;
-		width: calc(100% - 2rem);
+		width: 93vw;
 
 		@apply relative z-10 mx-auto tracking-tighter wrap-break-word text-xl;
+	}
+
+	body {
+		overflow-x: hidden;
 	}
 
 	body,

@@ -84,11 +84,11 @@
           <a
             href={link.url}
             target="_blank"
-            class="text-lg flex gap-1 items-center hover-underline"
+            class="flex gap-1 items-center hover-underline"
             id="link"
           >
             <link.typeComponent />
-            {link.name}
+            <span class="break-all text-lg/4">{link.name}</span>
             <MaterialSymbolsOpenInNew class="inline-block ml-1" />
           </a>
         {/each}
