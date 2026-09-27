@@ -7,9 +7,8 @@
   let scrollY: number = $state(0);
 
   let title: HTMLHeadingElement | undefined = $state();
-
-  let projectsDiv: HTMLDivElement | undefined = $state();
-  let projectsOffsetTop = $derived(projectsDiv?.offsetTop ?? 0);
+  let scrollDiv: HTMLDivElement | undefined = $state();
+  let projectsOffsetTop = $derived(scrollDiv?.offsetTop ?? 0);
 
   const { data }: PageProps = $props();
   const { projects, projectTags } = $derived(data);
@@ -33,6 +32,14 @@
       document.head.removeChild(style);
     };
   });
+
+  const projectsOpacity = $derived(
+    progress(
+      scrollY,
+      (scrollDiv?.offsetTop || 9999) - 500,
+      scrollDiv?.offsetTop || 9999,
+    ),
+  );
 </script>
 
 <svelte:window bind:scrollY />
@@ -45,9 +52,12 @@
 >
   Projects
 </h1>
+
 <div
-  bind:this={projectsDiv}
-  class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 mb-16"
+  style="opacity:{projectsOpacity};pointer-events:{projectsOpacity < 0.75
+    ? 'none'
+    : 'auto'}"
+  class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 h-[calc(100dvh-13rem)] fixed top-48 w-dvw mx-[-3.5dvw] px-[3.5dvw]"
 >
   {#each projects.sort((a, b) => {
     // featured on top, then sort by date
@@ -55,6 +65,21 @@
     if (!a.featured && b.featured) return 1;
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   }) as project, index}
-    <ProjectCard {project} {index} {tags} />
+    <ProjectCard
+      {project}
+      progressPoint={(index + 0.5) / projects.length}
+      progressDistance={1 / projects.length}
+      {tags}
+      scrollProgress={progress(
+        scrollY,
+        scrollDiv?.offsetTop || 9999,
+        (scrollDiv?.offsetHeight || 9999) - (scrollDiv?.offsetTop || 0) || 9999,
+      )}
+    />
   {/each}
 </div>
+<div
+  bind:this={scrollDiv}
+  style="height: {projects.length}00dvh"
+  class="mt-64"
+></div>
