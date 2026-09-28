@@ -38,13 +38,15 @@
 
 <div
   class="absolute bottom-0 md:w-3/5 w-5/6 sm:w-4/5 h-full max-w-4xl"
-  style="transform: translate(-50%, 0) scale({scale}); filter: opacity({scale *
-    1.8 -
-    0.6}) blur({Math.abs(displacementFactor) ** 1.5 *
-    4}px); z-index: {zIndex}; left: {position}%;"
+  style="transform: translate(-50%, 0) scale({scale}); z-index: {zIndex}; left: {position}%; "
 >
   <a
-    class="button rounded-lg p-0 hover:animate-wiggle flex flex-col overflow-hidden max-h-full"
+    class="button rounded-lg p-0 hover:animate-wiggle flex flex-col overflow-hidden max-h-full after:backdrop-hack after:backdrop-blur-md"
+    style="filter: opacity({scale * 1.8 - 0.6}) blur({Math.abs(
+      displacementFactor,
+    ) **
+      1.5 *
+      2}px);"
     href="/projects/{project.slug}"
   >
     {#if project.coverImage}
