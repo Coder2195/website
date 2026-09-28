@@ -36,7 +36,7 @@
   const projectsOpacity = $derived(
     progress(
       scrollY,
-      (scrollDiv?.offsetTop || 9999) - 500,
+      (scrollDiv?.offsetTop || 9999) - 750,
       scrollDiv?.offsetTop || 9999,
     ),
   );
@@ -57,7 +57,7 @@
   style="opacity:{projectsOpacity};pointer-events:{projectsOpacity < 0.75
     ? 'none'
     : 'auto'}"
-  class="grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 h-[calc(100dvh-13rem)] fixed top-48 w-dvw mx-[-3.5dvw] px-[3.5dvw]"
+  class="h-[calc(100dvh-13rem)] fixed bottom-2 w-dvw px-[3.5dvw] left-0"
 >
   {#each projects.sort((a, b) => {
     // featured on top, then sort by date
@@ -81,5 +81,5 @@
 <div
   bind:this={scrollDiv}
   style="height: {projects.length}00dvh"
-  class="mt-64"
+  class="mt-128"
 ></div>
