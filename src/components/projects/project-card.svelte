@@ -61,12 +61,12 @@
       </div>
     {/if}
     <div class="p-2">
-      <h4 class="card-title tracking-tight flex items-center gap-2">
+      <h2 class="card-title tracking-tight flex items-center gap-2 text-2xl">
         {#if project.featured}
           <Fa6SolidThumbtack aria-label="Featured" class="inline w-4 h-4" />
         {/if}
         {project.name}
-      </h4>
+      </h2>
       <div class="flex items-center gap-2 flex-wrap">
         {#each project.tags.map((tag) => tag.id) as tagId}
           <span
