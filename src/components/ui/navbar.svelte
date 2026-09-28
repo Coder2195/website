@@ -50,7 +50,7 @@
 <nav>
   <div class="border w-16 h-16 p-2 button">
     <a href="/">
-      <img src="/icon.png" alt="Home" class="w-full h-full rounded-full" /></a
+      <img src="/icon.webp" alt="Home" class="w-full h-full rounded-full" /></a
     >
   </div>
   <div
