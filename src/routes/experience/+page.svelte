@@ -29,7 +29,7 @@
   {/each}
 </div>
 
-<div class="grid grid-cols-4 gap-4 my-10 items-start">
+<div class="flex flex-wrap justify-stretch gap-4 my-10 items-start">
   {#each courses as course}
     <Course {...course} />
   {/each}

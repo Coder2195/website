@@ -103,7 +103,7 @@
         src={project.embed}
         title="{project.name} Demo"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-        class="w-full aspect-video rounded-lg border"
+        class="w-full aspect-video min-h-[75dvh] rounded-lg border"
         frameborder="0"
       ></iframe>
     </div>
