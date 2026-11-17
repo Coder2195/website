@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { GetSkillsSkill } from "@/lib/graphql";
+  import type { GetSkillsSkill } from "#lib/graphql/index.ts";
 
   let { skill, index }: { skill: GetSkillsSkill; index: number } = $props();
 

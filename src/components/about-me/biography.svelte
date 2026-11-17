@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { optimize } from "@/lib/image";
+  import { optimize } from "#lib/image.ts";
   import FeBirthdayCake from "~icons/fe/birthday-cake";
   import LucideGraduationCap from "~icons/lucide/graduation-cap";
   import MaterialSymbolsGlobeAsia from "~icons/material-symbols/globe-asia";

@@ -1,4 +1,4 @@
-import { dev } from "$app/environment";
+import { dev } from "$app/env";
 
 export function optimize(src: string, widths = [640, 960, 1280], quality = 90) {
 	if (dev) return src;

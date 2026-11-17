@@ -1,7 +1,7 @@
 <script lang="ts">
-  import ProjectCard from "@/components/projects/project-card.svelte";
-  import type { GetProjectsTag } from "@/lib/graphql";
-  import { progress } from "@/lib/math";
+  import ProjectCard from "#/components/projects/project-card.svelte";
+  import type { GetProjectsTag } from "#lib/graphql/index.ts";
+  import { progress } from "#lib/math.ts";
   import type { PageProps } from "./$types";
 
   let scrollY: number = $state(0);

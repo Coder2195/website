@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Navbar from "@/components/ui/navbar.svelte";
+  import Navbar from "#/components/ui/navbar.svelte";
   import "./layout.css";
   import { fade } from "svelte/transition";
   import { deepMerge, MetaTags } from "svelte-meta-tags";
-  import Background from "@/components/ui/background.svelte";
-  import Splash from "@/components/ui/splash.svelte";
+  import Background from "#/components/ui/background.svelte";
+  import Splash from "#/components/ui/splash.svelte";
   import { page } from "$app/state";
 
   let { children, data } = $props();

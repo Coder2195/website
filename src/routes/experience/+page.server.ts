@@ -1,6 +1,6 @@
 import type { MetaTagsProps } from "svelte-meta-tags";
-import { GET_EXPERIENCE, hygraph } from "@/lib/graphql";
-import type { GetExperienceQuery } from "@/lib/graphql/generated";
+import type { GetExperienceQuery } from "#lib/graphql/generated.ts";
+import { GET_EXPERIENCE, hygraph } from "#lib/graphql/index.ts";
 import type { PageServerLoad } from "./$types";
 
 export const config = {

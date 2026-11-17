@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Ai from "@/components/about-me/ai.svelte";
-  import Biography from "@/components/about-me/biography.svelte";
-  import Queer from "@/components/about-me/queer.svelte";
-  import Section from "@/components/about-me/section.svelte";
-  import Skills from "@/components/about-me/skills.svelte";
-  import { clamp, progress } from "@/lib/math";
+  import Ai from "#/components/about-me/ai.svelte";
+  import Biography from "#/components/about-me/biography.svelte";
+  import Queer from "#/components/about-me/queer.svelte";
+  import Section from "#/components/about-me/section.svelte";
+  import Skills from "#/components/about-me/skills.svelte";
+  import { clamp, progress } from "#lib/math.ts";
   import type { PageProps } from "./$types";
 
   let scrollY: number = $state(0);

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { LinkType } from "@/lib/graphql/generated";
-  import { optimize } from "@/lib/image";
-  import { progress } from "@/lib/math";
+  import type { LinkType } from "#lib/graphql/generated.ts";
+  import { optimize } from "#lib/image.ts";
+  import { progress } from "#lib/math.ts";
   import MaterialSymbolsCodeRounded from "~icons/material-symbols/code-rounded";
   import MaterialSymbolsLinkRounded from "~icons/material-symbols/link-rounded";
   import MaterialSymbolsOpenInNew from "~icons/material-symbols/open-in-new";

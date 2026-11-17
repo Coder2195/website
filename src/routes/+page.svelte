@@ -1,6 +1,6 @@
 <script lang="ts">
-  import ScrollProgress from "@/components/ui/scroll-progress.svelte";
-  import { progress } from "@/lib/math";
+  import ScrollProgress from "#/components/ui/scroll-progress.svelte";
+  import { progress } from "#lib/math.ts";
   import MaterialSymbolsKey from "~icons/material-symbols/key";
   import MdiEmail from "~icons/mdi/email";
   import MdiGithub from "~icons/mdi/github";

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { GetSkillsQuery } from "@/lib/graphql/generated";
+  import type { GetSkillsQuery } from "#lib/graphql/generated.ts";
   import Section from "./section.svelte";
   import Skill from "./skill.svelte";
 

@@ -1,11 +1,11 @@
 import { error } from "@sveltejs/kit";
 import type { MetaTagsProps, OpenGraph, Twitter } from "svelte-meta-tags";
-import { GET_PROJECT, hygraph } from "@/lib/graphql";
 import type {
 	GetProjectQuery,
 	GetProjectQueryVariables,
-} from "@/lib/graphql/generated";
-import { addQueryParams } from "@/lib/url";
+} from "#lib/graphql/generated.ts";
+import { GET_PROJECT, hygraph } from "#lib/graphql/index.ts";
+import { addQueryParams } from "#lib/url.ts";
 import type { PageServerLoad } from "./$types";
 
 export const config = {

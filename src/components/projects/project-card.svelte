@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { GetProjectsTag, ProjectPreview } from "@/lib/graphql";
-  import { optimize } from "@/lib/image";
+  import type { GetProjectsTag, ProjectPreview } from "#lib/graphql/index.ts";
+  import { optimize } from "#lib/image.ts";
   import Fa6SolidThumbtack from "~icons/fa6-solid/thumbtack";
 
   let {
