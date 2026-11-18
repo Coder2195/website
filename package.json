@@ -38,7 +38,7 @@
 		"@graphql-codegen/client-preset": "^7.0.0",
 		"@graphql-codegen/typescript-graphql-request": "^8.0.2",
 		"@iconify/json": "^2.2.557",
-		"graphql": "^17.1.0",
+		"graphql": "^16.0.0",
 		"graphql-request": "^7.4.0",
 		"svelte-meta-tags": "^5.0.3"
 	},
